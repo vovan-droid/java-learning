@@ -6,8 +6,11 @@ public class FigureDrawer {
         drawHorizontalLine(size);
     }
 
+    //If size >= 1
     private static void drawHorizontalLine(int size) {
-        // TODO: Implement
+        for (int i = 1; i <= size; i++) {
+            System.out.print("-");
+        }
     }
 
     private static void drawVerticalLine(int size) {
