@@ -13,7 +13,7 @@ public class FigureDrawer {
     //If size >= 1
     private static void drawHorizontalLine(int size) {
         for (int i = 1; i <= size; i++) {
-            System.out.print("*  ");
+            System.out.print("*");
         }
     }
 
@@ -28,7 +28,7 @@ public class FigureDrawer {
         for (int i = 1; i <= size - 2; i++) {
             System.out.println();
             System.out.print("*");
-            for (int j = 1; j <= size * 3 - 4; j++) {
+            for (int j = 1; j <= size - 2; j++) {
                 System.out.print(" ");
             }
             System.out.print("*");
