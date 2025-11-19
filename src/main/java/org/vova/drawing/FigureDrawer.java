@@ -4,6 +4,10 @@ public class FigureDrawer {
     public static void main(String[] args) {
         int size = 7;
         drawHorizontalLine(size);
+        System.out.println();
+        drawVerticalLine(size);
+        System.out.println();
+        drawSquare(size);
     }
 
     //If size >= 1
@@ -14,7 +18,9 @@ public class FigureDrawer {
     }
 
     private static void drawVerticalLine(int size) {
-        // TODO: Implement
+        for (int i = 1; i <= size; i++) {
+            System.out.println("|");
+        }
     }
 
     private static void drawSquare(int size) {
