@@ -24,5 +24,18 @@ public class FigureDrawer {
     }
 
     private static void drawSquare(int size) {
+        drawHorizontalLine(size);
+        for (int i = 1; i <= size - 2; i++) {
+            System.out.println();
+            System.out.print("*");
+            for (int j = 1; j <= size * 3 - 4; j++) {
+                System.out.print(" ");
+            }
+            System.out.print("*");
+        }
+        System.out.println();
+        if (size != 1) {
+            drawHorizontalLine(size);
+        }
     }
 }
