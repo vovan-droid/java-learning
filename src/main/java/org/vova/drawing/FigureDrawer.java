@@ -9,9 +9,9 @@ public class FigureDrawer {
         //System.out.println();
         //drawSquare(size);
         //System.out.println();
-        drawTriangle1(size);
+        //drawTriangle1(size);
         //System.out.println();
-        //drawTriangle2(size);
+        drawTriangle2(size);
     }
 
     //If size >= 1
@@ -61,6 +61,25 @@ public class FigureDrawer {
     }
 
     private static void drawTriangle2(int size) {
+        int midHeight = size / 2 - 1;
+        for (int i = 0; i <= midHeight; i++) {
+            System.out.print(" ");
+        }
+        System.out.println("*");
 
+        for (int i = 0; i < midHeight; i++) {
+            for (int j = 0; j < midHeight - i; j++) {
+                System.out.print(" ");
+            }
+            System.out.print("*");
+            for (int k = 1; k <= 2 * i + 1; k++) {
+                System.out.print(" ");
+            }
+            System.out.println("*");
+        }
+
+        if (size != 1) {
+            drawHorizontalLine(size);
+        }
     }
 }
