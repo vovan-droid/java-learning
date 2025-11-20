@@ -15,7 +15,6 @@ public class FigureDrawer {
         for (int i = 1; i <= size; i++) {
             System.out.print("*");
         }
-        System.out.println();
     }
 
     private static void drawVerticalLine(int size) {
@@ -27,13 +26,14 @@ public class FigureDrawer {
     private static void drawSquare(int size) {
         drawHorizontalLine(size);
         for (int i = 1; i <= size - 2; i++) {
+            System.out.println();
             System.out.print("*");
             for (int j = 1; j <= size - 2; j++) {
                 System.out.print(" ");
             }
             System.out.print("*");
-            System.out.println();
         }
+        System.out.println();
         if (size != 1) {
             drawHorizontalLine(size);
         }
