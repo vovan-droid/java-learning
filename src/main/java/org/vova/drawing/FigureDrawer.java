@@ -8,19 +8,25 @@ public class FigureDrawer {
     public static void main(String[] args) {
         int size = 7;
         int rep = 0;
-        drawHorizontalLine(size);
-        System.out.println();
-        drawVerticalLine(size);
-        System.out.println();
+        int heightSquare = size - 2;
+        int heightTriangle = size / 2 - 1;
+        int ireplacement = 0;
+        //drawHorizontalLine(size);
+        //System.out.println();
+        //drawVerticalLine(size);
+        //System.out.println();
         drawSquare(size);
         System.out.println();
-        drawSquareAlg1(size, size - 2, size - 2);
-        System.out.println();
+        //drawSquareAlg1(size, size - 2, size - 2);
+        //System.out.println();
         //drawTriangle1Alg1(size, size - 2, rep);
+        //System.out.println();
+        drawSquareAlg2(size, heightSquare, ireplacement);
         System.out.println();
-        drawTriangle1(size);
-        System.out.println();
+        //drawTriangle1(size);
+        //System.out.println();
         drawTriangle2(size);
+        drawTriangle2Alg2(size, heightTriangle, ireplacement);
     }
 
     //If size >= 1
@@ -49,6 +55,22 @@ public class FigureDrawer {
             System.out.println(ASTERIX);
         }
     }
+
+    private static void alg2(int size, int height , int outterSpace, int innerSpace, int ireplacement) {
+        for (int i = 0; i < height; i++) {
+            ireplacement++;
+            for (int j = 0; j < outterSpace; j++) {
+                System.out.print(SPACE);
+            }
+            System.out.print(ASTERIX);
+            for (int j = 0; j < innerSpace; j++) {
+                System.out.print(SPACE);
+            }
+            System.out.println(ASTERIX);
+        }
+        drawHorizontalLine(size);
+    }
+
     private static void drawSquare(int size) {
         drawHorizontalLine(size);
 
@@ -67,6 +89,12 @@ public class FigureDrawer {
         drawHorizontalLine(size);
         alg1(repForAsterixPrint, repForSpacePrint);
         drawHorizontalLine(size);
+    }
+
+    private static void drawSquareAlg2(int size, int height, int ireplacement) {
+        drawHorizontalLine(size);
+
+        alg2(size, height, 0, size - 2, ireplacement);
     }
 
     private static void drawTriangle1(int size) {
@@ -109,5 +137,15 @@ public class FigureDrawer {
         }
 
         drawHorizontalLine(size);
+    }
+// Снова проблема с параметром "i" (попытка заменить на "ireplacement", который должен рекурсивно меняться в циклах, но не делает этого
+    private static void drawTriangle2Alg2(int size, int height, int ireplacement) {
+        int midHeight = size / 2 - 1;
+        for (int i = 0; i <= midHeight; i++) {
+            System.out.print(SPACE);
+        }
+        System.out.println(ASTERIX);
+
+        alg2(size, midHeight,midHeight - ireplacement, 2 * ireplacement + 1, ireplacement);
     }
 }
