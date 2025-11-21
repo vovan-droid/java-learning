@@ -56,7 +56,12 @@ public class FigureDrawer {
         }
     }
 
-    private static void alg2(int size, int height , int outterSpace, int innerSpace, int ireplacement) {
+    private static void alg2(int... args) {
+        int size = args[0];
+        int height = args[1];
+        int outterSpace = args[2];
+        int innerSpace = args[3];
+        int ireplacement = args[4];
         for (int i = 0; i < height; i++) {
             ireplacement++;
             for (int j = 0; j < outterSpace; j++) {
