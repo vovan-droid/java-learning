@@ -19,6 +19,8 @@ public class FigureDrawer {
         drawTriangle1(size);
         System.out.println();
         drawTriangle2(size);
+        System.out.println();
+        drawTriangle2WithDottedLine(size);
     }
 
     //Вторая группа: (функциональные) методы, рисующие фигуры полностью
@@ -92,6 +94,17 @@ public class FigureDrawer {
             System.out.println(ASTERIX);
         }
 
+        if (size != 1) {
+            drawHorizontalLine(size);
+        }
+    }
+
+    private static void drawTriangle2WithDottedLine(int size) {
+        int midHeight = size / 2 - 1;
+        drawDottedLine(midHeight + 1);
+        for (int i = 0; i < midHeight; i++) {
+            drawDottedLine(midHeight - i, 2 * i + 1);
+        }
         if (size != 1) {
             drawHorizontalLine(size);
         }
