@@ -14,6 +14,7 @@ public class FigureDrawer {
         System.out.println();
         drawSquare(size);
         System.out.println();
+        System.out.println();
         drawTriangle1(size);
         System.out.println();
         drawTriangle2(size);
@@ -86,4 +87,13 @@ public class FigureDrawer {
     }
 
     //Третья группа: (сервисные) методы, которым делигировано рисование отдельных частей фигур
+    private static void drawDottedLine(int... amountOfSpacesBeforeAsterix) {
+        for (int i = 0; i < amountOfSpacesBeforeAsterix.length; i++) {
+            for (int j = 0; j < amountOfSpacesBeforeAsterix[i]; j++) {
+                System.out.print(SPACE);
+            }
+            System.out.print(ASTERIX);
+        }
+        System.out.println();
+    }
 }
