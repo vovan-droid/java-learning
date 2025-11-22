@@ -20,6 +20,8 @@ public class FigureDrawer {
         System.out.println();
         drawTriangle2(size);
         System.out.println();
+        drawTriangle1WithDottedLine(size);
+        System.out.println();
         drawTriangle2WithDottedLine(size);
     }
 
@@ -97,6 +99,14 @@ public class FigureDrawer {
         if (size != 1) {
             drawHorizontalLine(size);
         }
+    }
+
+    private static void drawTriangle1WithDottedLine(int size) {
+        drawDottedLine(0);
+        for (int i = 0; i < size - 2; i++) {
+            drawDottedLine(0, i);
+        }
+        drawHorizontalLine(size);
     }
 
     private static void drawTriangle2WithDottedLine(int size) {
