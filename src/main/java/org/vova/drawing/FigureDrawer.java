@@ -14,6 +14,7 @@ public class FigureDrawer {
         System.out.println();
         drawSquare(size);
         System.out.println();
+        drawSquareWithDottedLine(size);
         System.out.println();
         drawTriangle1(size);
         System.out.println();
@@ -43,6 +44,16 @@ public class FigureDrawer {
                 System.out.print(SPACE);
             }
             System.out.println(ASTERIX);
+        }
+        if (size != 1) {
+            drawHorizontalLine(size);
+        }
+    }
+
+    private static void drawSquareWithDottedLine (int size) {
+        drawHorizontalLine(size);
+        for (int i = 0; i < size - 2; i++) {
+            drawDottedLine(0, size - 2);
         }
         if (size != 1) {
             drawHorizontalLine(size);
