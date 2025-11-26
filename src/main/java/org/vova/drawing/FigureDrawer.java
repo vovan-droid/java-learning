@@ -31,6 +31,8 @@ public class FigureDrawer {
         drawTriangle2WithDottedLine(size);
         System.out.println();
         drawTriangle2WithPrintElementWithForLn(size);
+        System.out.println();
+        drawCrossWithPrintDottedLine(size);
     }
 
     //Вторая группа: (функциональные) методы, рисующие фигуры полностью
@@ -181,6 +183,17 @@ public class FigureDrawer {
 
         if (size != 1) {
             drawHorizontalLine(size);
+        }
+    }
+
+    private static void drawCrossWithPrintDottedLine(int size) {
+        int midHeightCross = size / 2;
+        for (int i = 0; i < midHeightCross; i++) {
+           printDottedLine(i, size - 2 - 2 * i);
+           }
+        printDottedLine(midHeightCross);
+        for (int i = 0; i < midHeightCross; i++) {
+           printDottedLine(midHeightCross - 1 - i, 1 + 2 * i);
         }
     }
 
