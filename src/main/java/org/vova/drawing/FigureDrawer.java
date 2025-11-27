@@ -16,21 +16,27 @@ public class FigureDrawer {
         System.out.println();
         drawSquare(size);
         System.out.println();
-        drawSquareWithDottedLine(size);
+        drawSquareWithPrintSpacesAndAsterixNewLine(size);
         System.out.println();
-        drawSquareWithPrintElementWithForLn(size);
+        drawSquareWithPrintSpacesAndAsterixWithNewLineIfNeeded(size);
+        System.out.println();
+        drawSquareWithDottedLine(size);
         System.out.println();
         drawTriangle1(size);
         System.out.println();
-        drawTriangle1WithDottedLine(size);
+        drawTriangle1WithPrintSpacesAndAsterixNewLine(size);
         System.out.println();
-        drawTriangle1WithPrintSpacesAndNewLineIfChar1Empty(size);
+        drawTriangle1WithPrintSpacesAndAsterixWithNewLineIfNeeded(size);
+        System.out.println();
+        drawTriangle1WithDottedLine(size);
         System.out.println();
         drawTriangle2(size);
         System.out.println();
-        drawTriangle2WithDottedLine(size);
+        drawTriangle2WithPrintSpacesAndAsterixNewLine(size);
         System.out.println();
-        drawTriangle2WithPrintElementWithForLn(size);
+        drawTriangle2WithPrintSpacesAndAsterixWithNewLineIfNeeded(size);
+        System.out.println();
+        drawTriangle2WithDottedLine(size);
         System.out.println();
         drawCrossWithPrintDottedLine(size);
     }
@@ -69,11 +75,12 @@ public class FigureDrawer {
         }
     }
 
-    private static void drawSquareWithDottedLine(int size) {
+    private static void drawSquareWithPrintSpacesAndAsterixNewLine(int size) {
         drawHorizontalLine(size);
 
         for (int i = 0; i < size - 2; i++) {
-            printDottedLine(0, size - 2);
+            System.out.print(ASTERIX);
+            printSpacesAndAsterixNewLine(size - 2);
         }
 
         if (size != 1) {
@@ -81,12 +88,23 @@ public class FigureDrawer {
         }
     }
 
-    private static void drawSquareWithPrintElementWithForLn(int size) {
+    private static void drawSquareWithPrintSpacesAndAsterixWithNewLineIfNeeded(int size) {
         drawHorizontalLine(size);
 
         for (int i = 0; i < size - 2; i++) {
             System.out.print(ASTERIX);
             printSpacesAndAsterixWithNewLineIfNeeded(size - 2, true);
+        }
+
+        if (size != 1) {
+            drawHorizontalLine(size);
+        }
+    }
+    private static void drawSquareWithDottedLine(int size) {
+        drawHorizontalLine(size);
+
+        for (int i = 0; i < size - 2; i++) {
+            printDottedLine(0, size - 2);
         }
 
         if (size != 1) {
@@ -110,11 +128,12 @@ public class FigureDrawer {
         }
     }
 
-    private static void drawTriangle1WithDottedLine(int size) {
-        printDottedLine(0);
+    private static void drawTriangle1WithPrintSpacesAndAsterixNewLine(int size) {
+        System.out.println(ASTERIX);
 
         for (int i = 0; i < size - 2; i++) {
-            printDottedLine(0, i);
+            System.out.print(ASTERIX);
+            printSpacesAndAsterixNewLine(i);
         }
 
         if (size != 1) {
@@ -122,12 +141,24 @@ public class FigureDrawer {
         }
     }
 
-    private static void drawTriangle1WithPrintSpacesAndNewLineIfChar1Empty(int size) {
+    private static void drawTriangle1WithPrintSpacesAndAsterixWithNewLineIfNeeded(int size) {
         System.out.println(ASTERIX);
 
         for (int i = 0; i < size - 2; i++) {
             System.out.print(ASTERIX);
             printSpacesAndAsterixWithNewLineIfNeeded(i, true);
+        }
+
+        if (size != 1) {
+            drawHorizontalLine(size);
+        }
+    }
+
+    private static void drawTriangle1WithDottedLine(int size) {
+        printDottedLine(0);
+
+        for (int i = 0; i < size - 2; i++) {
+            printDottedLine(0, i);
         }
 
         if (size != 1) {
@@ -158,12 +189,14 @@ public class FigureDrawer {
         }
     }
 
-    private static void drawTriangle2WithDottedLine(int size) {
+    private static void drawTriangle2WithPrintSpacesAndAsterixNewLine(int size) {
         int midHeight = size / 2 - 1;
-        printDottedLine(midHeight + 1);
+        printSpacesAndAsterixNewLine(midHeight + 1);
 
         for (int i = 0; i < midHeight; i++) {
-            printDottedLine(midHeight - i, 2 * i + 1);
+            printSpaces(midHeight - i);
+            System.out.print(ASTERIX);
+            printSpacesAndAsterixNewLine(2 * i + 1);
         }
 
         if (size != 1) {
@@ -171,7 +204,7 @@ public class FigureDrawer {
         }
     }
 
-    private static void drawTriangle2WithPrintElementWithForLn(int size) {
+    private static void drawTriangle2WithPrintSpacesAndAsterixWithNewLineIfNeeded(int size) {
         int midHeight = size / 2 - 1;
         printSpacesAndAsterixWithNewLineIfNeeded(midHeight + 1, true);
 
@@ -179,6 +212,19 @@ public class FigureDrawer {
             printSpacesAndAsterixWithNewLineIfNeeded(midHeight - i, false);
             System.out.print(ASTERIX);
             printSpacesAndAsterixWithNewLineIfNeeded(2 * i + 1, true);
+        }
+
+        if (size != 1) {
+            drawHorizontalLine(size);
+        }
+    }
+
+    private static void drawTriangle2WithDottedLine(int size) {
+        int midHeight = size / 2 - 1;
+        printDottedLine(midHeight + 1);
+
+        for (int i = 0; i < midHeight; i++) {
+            printDottedLine(midHeight - i, 2 * i + 1);
         }
 
         if (size != 1) {
@@ -199,6 +245,19 @@ public class FigureDrawer {
 
     //Третья группа: (сервисные) методы, которым делигировано рисование отдельных частей фигур
 
+
+    //Печатает пробелы в цикле
+    private static void printSpaces(int amountOfSpacesBeforeChar1) {
+        for (int i = 0; i < amountOfSpacesBeforeChar1; i++) {
+            System.out.print(SPACE);
+        }
+    }
+
+    //Печатает пробелы в цикле (используя printChar1) и ставит звездочку с переводом строки
+    private static void printSpacesAndAsterixNewLine(int amountOfSpacesBeforeChar1) {
+        printSpaces(amountOfSpacesBeforeChar1);
+        System.out.println(ASTERIX);
+    }
 
     //Печатает пробелы в цикле и ставит звездочку с переводом строки, если требуется
     private static void printSpacesAndAsterixWithNewLineIfNeeded(int amountOfSpaces, boolean asterixNewLine) {
