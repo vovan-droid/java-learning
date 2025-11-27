@@ -44,9 +44,9 @@ public class FigureDrawer {
         System.out.println();
         drawHouse(size);
         System.out.println();
+        drawHouse1(size);
+        System.out.println();
 //        drawHouseDNA(size);
-
-
     }
 
     //Вторая группа: (функциональные) методы, рисующие фигуры полностью
@@ -286,6 +286,28 @@ public class FigureDrawer {
             printSpaces(midHeightCrossForHouse);
         }
         System.out.println(ASTERIX);
+
+        for (int i = 0; i < midHeightCrossForHouse; i++) {
+            System.out.print(ASTERIX);
+            printDottedLineWithoutNewLine(midHeightCrossForHouse - 1 - i, 1 + 2 * i);
+            printSpacesAndAsterixNewLine(midHeightCrossForHouse - 1 - i);
+        }
+
+        drawHorizontalLine(size);
+    }
+
+    private static void drawHouse1(int size) {
+        drawTriangle2(size);
+
+        int midHeightCrossForHouse = size / 2 - 1;
+        for (int i = 0; i < midHeightCrossForHouse; i++) {
+            System.out.print(ASTERIX);
+            printDottedLineWithoutNewLine(i, size - 4 - 2 * i);
+            printSpacesAndAsterixNewLine(i);
+        }
+
+        System.out.print(ASTERIX);
+        printDottedLine(midHeightCrossForHouse, midHeightCrossForHouse);
 
         for (int i = 0; i < midHeightCrossForHouse; i++) {
             System.out.print(ASTERIX);
