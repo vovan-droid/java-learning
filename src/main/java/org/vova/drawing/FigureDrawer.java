@@ -38,7 +38,15 @@ public class FigureDrawer {
         System.out.println();
         drawTriangle2WithDottedLine(size);
         System.out.println();
+        drawCrossWithPrintDottedLineWithoutNewLine(size);
+        System.out.println();
         drawCrossWithPrintDottedLine(size);
+        System.out.println();
+        drawHouse(size);
+        System.out.println();
+//        drawHouseDNA(size);
+
+
     }
 
     //Вторая группа: (функциональные) методы, рисующие фигуры полностью
@@ -232,16 +240,74 @@ public class FigureDrawer {
         }
     }
 
+    private static void drawCrossWithPrintDottedLineWithoutNewLine(int size) {
+        int midHeightCross = size / 2;
+
+        for (int i = 0; i < midHeightCross; i++) {
+            printDottedLineWithoutNewLine(i, size - 2 - 2 * i);
+            System.out.println();
+        }
+
+        printDottedLineWithoutNewLine(midHeightCross);
+        System.out.println();
+
+        for (int i = 0; i < midHeightCross; i++) {
+            printDottedLineWithoutNewLine(midHeightCross - 1 - i, 1 + 2 * i);
+            System.out.println();
+        }
+    }
+
     private static void drawCrossWithPrintDottedLine(int size) {
         int midHeightCross = size / 2;
+
         for (int i = 0; i < midHeightCross; i++) {
            printDottedLine(i, size - 2 - 2 * i);
            }
+
         printDottedLine(midHeightCross);
+
         for (int i = 0; i < midHeightCross; i++) {
            printDottedLine(midHeightCross - 1 - i, 1 + 2 * i);
         }
     }
+
+    private static void drawHouse(int size) {
+        drawTriangle2(size);
+
+        int midHeightCrossForHouse = size / 2 - 1;
+        for (int i = 0; i < midHeightCrossForHouse; i++) {
+            System.out.print(ASTERIX);
+            printDottedLineWithoutNewLine(i, size - 4 - 2 * i);
+            printSpacesAndAsterixNewLine(i);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            System.out.print(ASTERIX);
+            printSpaces(midHeightCrossForHouse);
+        }
+        System.out.println(ASTERIX);
+
+        for (int i = 0; i < midHeightCrossForHouse; i++) {
+            System.out.print(ASTERIX);
+            printDottedLineWithoutNewLine(midHeightCrossForHouse - 1 - i, 1 + 2 * i);
+            printSpacesAndAsterixNewLine(midHeightCrossForHouse - 1 - i);
+        }
+
+        drawHorizontalLine(size);
+    }
+
+//    private static void drawHouseDNA(int size) {
+//        drawTriangle2(size);
+//
+//        for (int i = 0; i < size - 2; i++) {
+//            printDottedLine(0, size - 2);
+//            drawCrossWithPrintDottedLine(size - 2);
+//        }
+//
+//        if (size != 1) {
+//            drawHorizontalLine(size);
+//        }
+//    }
 
     //Третья группа: (сервисные) методы, которым делигировано рисование отдельных частей фигур
 
@@ -266,6 +332,15 @@ public class FigureDrawer {
         }
         if (asterixNewLine) {
             System.out.println(ASTERIX);
+        }
+    }
+
+    private static void printDottedLineWithoutNewLine(int... amountOfSpacesBeforeAsterix) {
+        for (int i = 0; i < amountOfSpacesBeforeAsterix.length; i++) {
+            for (int j = 0; j < amountOfSpacesBeforeAsterix[i]; j++) {
+                System.out.print(SPACE);
+            }
+            System.out.print(ASTERIX);
         }
     }
 
