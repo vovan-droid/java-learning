@@ -46,6 +46,8 @@ public class FigureDrawer {
         System.out.println();
         drawHouse1(size);
         System.out.println();
+        drawHouse2(size);
+        System.out.println();
 //        drawHouseDNA(size);
     }
 
@@ -313,6 +315,26 @@ public class FigureDrawer {
             System.out.print(ASTERIX);
             printDottedLineWithoutNewLine(midHeightCrossForHouse - 1 - i, 1 + 2 * i);
             printSpacesAndAsterixNewLine(midHeightCrossForHouse - 1 - i);
+        }
+
+        drawHorizontalLine(size);
+    }
+
+    private static void drawHouse2(int size) {
+        drawTriangle2(size);
+
+        int midHeightCrossForHouse = size / 2 - 1;
+        for (int i = 0; i < midHeightCrossForHouse; i++) {
+            System.out.print(ASTERIX);
+            printDottedLine(i, size - 4 - 2 * i, i);
+        }
+
+        System.out.print(ASTERIX);
+        printDottedLine(midHeightCrossForHouse, midHeightCrossForHouse);
+
+        for (int i = 0; i < midHeightCrossForHouse; i++) {
+            System.out.print(ASTERIX);
+            printDottedLine(midHeightCrossForHouse - 1 - i, 1 + 2 * i, midHeightCrossForHouse - 1 - i);
         }
 
         drawHorizontalLine(size);
