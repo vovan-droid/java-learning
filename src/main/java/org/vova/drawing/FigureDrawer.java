@@ -325,16 +325,13 @@ public class FigureDrawer {
 
         int midHeightCrossForHouse = size / 2 - 1;
         for (int i = 0; i < midHeightCrossForHouse; i++) {
-            System.out.print(ASTERIX);
-            printDottedLine(i, size - 4 - 2 * i, i);
+            printDottedLine(0,i, size - 4 - 2 * i, i);
         }
 
-        System.out.print(ASTERIX);
-        printDottedLine(midHeightCrossForHouse, midHeightCrossForHouse);
+        printDottedLine(0,midHeightCrossForHouse, midHeightCrossForHouse);
 
         for (int i = 0; i < midHeightCrossForHouse; i++) {
-            System.out.print(ASTERIX);
-            printDottedLine(midHeightCrossForHouse - 1 - i, 1 + 2 * i, midHeightCrossForHouse - 1 - i);
+            printDottedLine(0,midHeightCrossForHouse - 1 - i, 1 + 2 * i, midHeightCrossForHouse - 1 - i);
         }
 
         drawHorizontalLine(size);
@@ -356,46 +353,21 @@ public class FigureDrawer {
     //Третья группа: (сервисные) методы, которым делигировано рисование отдельных частей фигур
 
 
+    //Печатает пробелы до звездочек в цикле и ставит их
+
+    private static void printDottedLine(int... amountOfSpacesBeforeAsterix) {
+        for (int i = 0; i < amountOfSpacesBeforeAsterix.length; i++) {
+            printSpaces(amountOfSpacesBeforeAsterix[i]);
+            System.out.print(ASTERIX);
+        }
+        System.out.println();
+    }
+
     //Печатает пробелы в цикле
+
     private static void printSpaces(int amountOfSpacesBeforeChar1) {
         for (int i = 0; i < amountOfSpacesBeforeChar1; i++) {
             System.out.print(SPACE);
         }
-    }
-
-    //Печатает пробелы в цикле (используя printChar1) и ставит звездочку с переводом строки
-    private static void printSpacesAndAsterixNewLine(int amountOfSpacesBeforeChar1) {
-        printSpaces(amountOfSpacesBeforeChar1);
-        System.out.println(ASTERIX);
-    }
-
-    //Печатает пробелы в цикле и ставит звездочку с переводом строки, если требуется
-    private static void printSpacesAndAsterixWithNewLineIfNeeded(int amountOfSpaces, boolean asterixNewLine) {
-        for (int i = 0; i < amountOfSpaces; i++) {
-            System.out.print(SPACE);
-        }
-        if (asterixNewLine) {
-            System.out.println(ASTERIX);
-        }
-    }
-
-    private static void printDottedLineWithoutNewLine(int... amountOfSpacesBeforeAsterix) {
-        for (int i = 0; i < amountOfSpacesBeforeAsterix.length; i++) {
-            for (int j = 0; j < amountOfSpacesBeforeAsterix[i]; j++) {
-                System.out.print(SPACE);
-            }
-            System.out.print(ASTERIX);
-        }
-    }
-
-    //Печатает пробелы до звездочек в цикле и ставит их
-    private static void printDottedLine(int... amountOfSpacesBeforeAsterix) {
-        for (int i = 0; i < amountOfSpacesBeforeAsterix.length; i++) {
-            for (int j = 0; j < amountOfSpacesBeforeAsterix[i]; j++) {
-                System.out.print(SPACE);
-            }
-            System.out.print(ASTERIX);
-        }
-        System.out.println();
     }
 }
