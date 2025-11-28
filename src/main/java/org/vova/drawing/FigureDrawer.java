@@ -30,8 +30,8 @@ public class FigureDrawer {
         System.out.println();
         drawHouse2(size);
         System.out.println();
-//        drawHouseDNA(size);
     }
+
 
     //Вторая группа: (функциональные) методы, рисующие фигуры полностью
 
@@ -39,12 +39,9 @@ public class FigureDrawer {
     //If size >= 1
 
     private static void drawHorizontalLine(int size) {
-        for (int i = 0; i < size; i++) {
-            System.out.print(ASTERIX);
-        }
-        System.out.println();
+        printSolidLine(size);
     }
-    
+
     private static void drawVerticalLine(int size) {
         for (int i = 0; i < size; i++) {
             System.out.println(ASTERIX);
@@ -52,7 +49,7 @@ public class FigureDrawer {
     }
 
     private static void drawSquare(int size) {
-        drawHorizontalLine(size);
+        printSolidLine(size);
 
         for (int i = 0; i < size - 2; i++) {
             System.out.print(ASTERIX);
@@ -63,19 +60,19 @@ public class FigureDrawer {
         }
 
         if (size != 1) {
-            drawHorizontalLine(size);
+            printSolidLine(size);
         }
     }
 
     private static void drawSquareWithDottedLine(int size) {
-        drawHorizontalLine(size);
+        printSolidLine(size);
 
         for (int i = 0; i < size - 2; i++) {
             printDottedLine(0, size - 2);
         }
 
         if (size != 1) {
-            drawHorizontalLine(size);
+            printSolidLine(size);
         }
     }
 
@@ -91,7 +88,7 @@ public class FigureDrawer {
         }
 
         if (size != 1) {
-            drawHorizontalLine(size);
+            printSolidLine(size);
         }
     }
 
@@ -103,7 +100,7 @@ public class FigureDrawer {
         }
 
         if (size != 1) {
-            drawHorizontalLine(size);
+            printSolidLine(size);
         }
     }
 
@@ -126,7 +123,7 @@ public class FigureDrawer {
         }
 
         if (size != 1) {
-            drawHorizontalLine(size);
+            printSolidLine(size);
         }
     }
 
@@ -139,7 +136,7 @@ public class FigureDrawer {
         }
 
         if (size != 1) {
-            drawHorizontalLine(size);
+            printSolidLine(size);
         }
     }
 
@@ -147,13 +144,13 @@ public class FigureDrawer {
         int midHeightCross = size / 2;
 
         for (int i = 0; i < midHeightCross; i++) {
-           printDottedLine(i, size - 2 - 2 * i);
-           }
+            printDottedLine(i, size - 2 - 2 * i);
+        }
 
         printDottedLine(midHeightCross);
 
         for (int i = 0; i < midHeightCross; i++) {
-           printDottedLine(midHeightCross - 1 - i, 1 + 2 * i);
+            printDottedLine(midHeightCross - 1 - i, 1 + 2 * i);
         }
     }
 
@@ -162,36 +159,23 @@ public class FigureDrawer {
 
         int midHeightCrossForHouse = size / 2 - 1;
         for (int i = 0; i < midHeightCrossForHouse; i++) {
-            printDottedLine(0,i, size - 4 - 2 * i, i);
+            printDottedLine(0, i, size - 4 - 2 * i, i);
         }
 
-        printDottedLine(0,midHeightCrossForHouse, midHeightCrossForHouse);
+        printDottedLine(0, midHeightCrossForHouse, midHeightCrossForHouse);
 
         for (int i = 0; i < midHeightCrossForHouse; i++) {
-            printDottedLine(0,midHeightCrossForHouse - 1 - i, 1 + 2 * i, midHeightCrossForHouse - 1 - i);
+            printDottedLine(0, midHeightCrossForHouse - 1 - i, 1 + 2 * i, midHeightCrossForHouse - 1 - i);
         }
 
-        drawHorizontalLine(size);
+        printSolidLine(size);
     }
 
-//    private static void drawHouseDNA(int size) {
-//        drawTriangle2(size);
-//
-//        for (int i = 0; i < size - 2; i++) {
-//            printDottedLine(0, size - 2);
-//            drawCrossWithPrintDottedLine(size - 2);
-//        }
-//
-//        if (size != 1) {
-//            drawHorizontalLine(size);
-//        }
-//    }
 
     //Третья группа: (сервисные) методы, которым делигировано рисование отдельных частей фигур
 
 
     //Печатает пробелы до звездочек в цикле и ставит их
-
     private static void printDottedLine(int... amountOfSpacesBeforeAsterix) {
         for (int i = 0; i < amountOfSpacesBeforeAsterix.length; i++) {
             printSpaces(amountOfSpacesBeforeAsterix[i]);
@@ -200,8 +184,15 @@ public class FigureDrawer {
         System.out.println();
     }
 
-    //Печатает пробелы в цикле
+    //Печатает звездочки в цикле и переводит строку после цикла
+    private static void printSolidLine(int amountOfAsterixes) {
+        for (int i = 0; i < amountOfAsterixes; i++) {
+        System.out.print(ASTERIX);
+        }
+        System.out.println();
+    }
 
+    //Печатает пробелы в цикле
     private static void printSpaces(int amountOfSpacesBeforeChar1) {
         for (int i = 0; i < amountOfSpacesBeforeChar1; i++) {
             System.out.print(SPACE);
