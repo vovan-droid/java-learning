@@ -16,35 +16,17 @@ public class FigureDrawer {
         System.out.println();
         drawSquare(size);
         System.out.println();
-        drawSquareWithPrintSpacesAndAsterixNewLine(size);
-        System.out.println();
-        drawSquareWithPrintSpacesAndAsterixWithNewLineIfNeeded(size);
-        System.out.println();
         drawSquareWithDottedLine(size);
         System.out.println();
         drawTriangle1(size);
-        System.out.println();
-        drawTriangle1WithPrintSpacesAndAsterixNewLine(size);
-        System.out.println();
-        drawTriangle1WithPrintSpacesAndAsterixWithNewLineIfNeeded(size);
         System.out.println();
         drawTriangle1WithDottedLine(size);
         System.out.println();
         drawTriangle2(size);
         System.out.println();
-        drawTriangle2WithPrintSpacesAndAsterixNewLine(size);
-        System.out.println();
-        drawTriangle2WithPrintSpacesAndAsterixWithNewLineIfNeeded(size);
-        System.out.println();
         drawTriangle2WithDottedLine(size);
         System.out.println();
-        drawCrossWithPrintDottedLineWithoutNewLine(size);
-        System.out.println();
         drawCrossWithPrintDottedLine(size);
-        System.out.println();
-        drawHouse(size);
-        System.out.println();
-        drawHouse1(size);
         System.out.println();
         drawHouse2(size);
         System.out.println();
@@ -85,31 +67,6 @@ public class FigureDrawer {
         }
     }
 
-    private static void drawSquareWithPrintSpacesAndAsterixNewLine(int size) {
-        drawHorizontalLine(size);
-
-        for (int i = 0; i < size - 2; i++) {
-            System.out.print(ASTERIX);
-            printSpacesAndAsterixNewLine(size - 2);
-        }
-
-        if (size != 1) {
-            drawHorizontalLine(size);
-        }
-    }
-
-    private static void drawSquareWithPrintSpacesAndAsterixWithNewLineIfNeeded(int size) {
-        drawHorizontalLine(size);
-
-        for (int i = 0; i < size - 2; i++) {
-            System.out.print(ASTERIX);
-            printSpacesAndAsterixWithNewLineIfNeeded(size - 2, true);
-        }
-
-        if (size != 1) {
-            drawHorizontalLine(size);
-        }
-    }
     private static void drawSquareWithDottedLine(int size) {
         drawHorizontalLine(size);
 
@@ -131,32 +88,6 @@ public class FigureDrawer {
                 System.out.print(SPACE);
             }
             System.out.println(ASTERIX);
-        }
-
-        if (size != 1) {
-            drawHorizontalLine(size);
-        }
-    }
-
-    private static void drawTriangle1WithPrintSpacesAndAsterixNewLine(int size) {
-        System.out.println(ASTERIX);
-
-        for (int i = 0; i < size - 2; i++) {
-            System.out.print(ASTERIX);
-            printSpacesAndAsterixNewLine(i);
-        }
-
-        if (size != 1) {
-            drawHorizontalLine(size);
-        }
-    }
-
-    private static void drawTriangle1WithPrintSpacesAndAsterixWithNewLineIfNeeded(int size) {
-        System.out.println(ASTERIX);
-
-        for (int i = 0; i < size - 2; i++) {
-            System.out.print(ASTERIX);
-            printSpacesAndAsterixWithNewLineIfNeeded(i, true);
         }
 
         if (size != 1) {
@@ -199,36 +130,6 @@ public class FigureDrawer {
         }
     }
 
-    private static void drawTriangle2WithPrintSpacesAndAsterixNewLine(int size) {
-        int midHeight = size / 2 - 1;
-        printSpacesAndAsterixNewLine(midHeight + 1);
-
-        for (int i = 0; i < midHeight; i++) {
-            printSpaces(midHeight - i);
-            System.out.print(ASTERIX);
-            printSpacesAndAsterixNewLine(2 * i + 1);
-        }
-
-        if (size != 1) {
-            drawHorizontalLine(size);
-        }
-    }
-
-    private static void drawTriangle2WithPrintSpacesAndAsterixWithNewLineIfNeeded(int size) {
-        int midHeight = size / 2 - 1;
-        printSpacesAndAsterixWithNewLineIfNeeded(midHeight + 1, true);
-
-        for (int i = 0; i < midHeight; i++) {
-            printSpacesAndAsterixWithNewLineIfNeeded(midHeight - i, false);
-            System.out.print(ASTERIX);
-            printSpacesAndAsterixWithNewLineIfNeeded(2 * i + 1, true);
-        }
-
-        if (size != 1) {
-            drawHorizontalLine(size);
-        }
-    }
-
     private static void drawTriangle2WithDottedLine(int size) {
         int midHeight = size / 2 - 1;
         printDottedLine(midHeight + 1);
@@ -239,23 +140,6 @@ public class FigureDrawer {
 
         if (size != 1) {
             drawHorizontalLine(size);
-        }
-    }
-
-    private static void drawCrossWithPrintDottedLineWithoutNewLine(int size) {
-        int midHeightCross = size / 2;
-
-        for (int i = 0; i < midHeightCross; i++) {
-            printDottedLineWithoutNewLine(i, size - 2 - 2 * i);
-            System.out.println();
-        }
-
-        printDottedLineWithoutNewLine(midHeightCross);
-        System.out.println();
-
-        for (int i = 0; i < midHeightCross; i++) {
-            printDottedLineWithoutNewLine(midHeightCross - 1 - i, 1 + 2 * i);
-            System.out.println();
         }
     }
 
@@ -271,53 +155,6 @@ public class FigureDrawer {
         for (int i = 0; i < midHeightCross; i++) {
            printDottedLine(midHeightCross - 1 - i, 1 + 2 * i);
         }
-    }
-
-    private static void drawHouse(int size) {
-        drawTriangle2(size);
-
-        int midHeightCrossForHouse = size / 2 - 1;
-        for (int i = 0; i < midHeightCrossForHouse; i++) {
-            System.out.print(ASTERIX);
-            printDottedLineWithoutNewLine(i, size - 4 - 2 * i);
-            printSpacesAndAsterixNewLine(i);
-        }
-
-        for (int i = 0; i < 2; i++) {
-            System.out.print(ASTERIX);
-            printSpaces(midHeightCrossForHouse);
-        }
-        System.out.println(ASTERIX);
-
-        for (int i = 0; i < midHeightCrossForHouse; i++) {
-            System.out.print(ASTERIX);
-            printDottedLineWithoutNewLine(midHeightCrossForHouse - 1 - i, 1 + 2 * i);
-            printSpacesAndAsterixNewLine(midHeightCrossForHouse - 1 - i);
-        }
-
-        drawHorizontalLine(size);
-    }
-
-    private static void drawHouse1(int size) {
-        drawTriangle2(size);
-
-        int midHeightCrossForHouse = size / 2 - 1;
-        for (int i = 0; i < midHeightCrossForHouse; i++) {
-            System.out.print(ASTERIX);
-            printDottedLineWithoutNewLine(i, size - 4 - 2 * i);
-            printSpacesAndAsterixNewLine(i);
-        }
-
-        System.out.print(ASTERIX);
-        printDottedLine(midHeightCrossForHouse, midHeightCrossForHouse);
-
-        for (int i = 0; i < midHeightCrossForHouse; i++) {
-            System.out.print(ASTERIX);
-            printDottedLineWithoutNewLine(midHeightCrossForHouse - 1 - i, 1 + 2 * i);
-            printSpacesAndAsterixNewLine(midHeightCrossForHouse - 1 - i);
-        }
-
-        drawHorizontalLine(size);
     }
 
     private static void drawHouse2(int size) {
