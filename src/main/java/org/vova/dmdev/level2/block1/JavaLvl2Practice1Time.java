@@ -1,4 +1,4 @@
-package org.vova.dmdev.level2;
+package org.vova.dmdev.level2.block1;
 
 public class JavaLvl2Practice1Time {
 
