@@ -2,7 +2,7 @@ package org.vova.dmdev.level2.pedigree;
 
 public class CatTest {
 
-    static int counter = 0;
+    public static final String SPACES = "  ";
 
     public static void main(String[] args) {
         Cat grandGrandFather1 = new Cat("Bailey");
@@ -28,21 +28,17 @@ public class CatTest {
         printTree(marquis);
     }
 
-    public static void printTree(Cat cat) {
-        if (cat != null) {
-            printSpaces(counter);
-            counter++;
-            System.out.println(cat.name);
-            printTree(cat.father);
-            printTree(cat.mother);
-            counter--;
 
-        }
+    public static void printTree(Cat cat) {
+        printTree(cat, 0, "");
     }
 
-    public static void printSpaces(int counter) {
-        for (int i = 0; i < counter; i++) {
-            System.out.print("              ");
+
+    public static void printTree(Cat cat, int level, String prefix) {
+        if (cat != null) {
+            System.out.println(SPACES.repeat(level) + prefix + cat.name);
+            printTree(cat.father, level + 1, "Father: ");
+            printTree(cat.mother, level + 1, "Mother: ");
         }
     }
 }
