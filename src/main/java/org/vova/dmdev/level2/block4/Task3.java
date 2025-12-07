@@ -8,9 +8,9 @@ public class Task3 {
     }
 
     public static String nameInitials(String firstName, String lastName, String patronymicName) {
-        char firstNameChar = firstName.charAt(0);
-        char lastNameChar = lastName.charAt(0);
-        char patronymicNameChar = patronymicName.charAt(0);
+        char firstNameChar = Character.toUpperCase(firstName.charAt(0));
+        char lastNameChar = Character.toUpperCase(lastName.charAt(0));
+        char patronymicNameChar = Character.toUpperCase(patronymicName.charAt(0));
         return lastNameChar + "." + firstNameChar + "." + patronymicNameChar;
     }
 }
