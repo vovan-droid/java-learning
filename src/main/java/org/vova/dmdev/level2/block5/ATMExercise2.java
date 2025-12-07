@@ -34,13 +34,27 @@ public class ATMExercise2 {
     }
 
     public boolean moneyWithdraw(int amountToWithdraw) {
-        this.banknote50Amount = this.banknote50Amount - (amountToWithdraw / 50);
-        this.banknote20Amount = this.banknote20Amount - (amountToWithdraw % 50 / 20);
-        this.banknote10Amount = this.banknote10Amount - (amountToWithdraw % 50 % 20 / 10);
-
-        if (this.banknote10Amount < 0 || this.banknote20Amount < 0 || this.banknote50Amount < 0) {
+        if (amountToWithdraw <= 0 || amountToWithdraw % 10 != 0) {
             return false;
         }
+        int need50 = Math.min(amountToWithdraw / 50, banknote50Amount);
+        int remaining = amountToWithdraw - need50 * 50;
+
+        int need20 = Math.min(remaining / 20, banknote20Amount);
+        remaining -= need20 * 20;
+
+        int need10 = Math.min(remaining / 10, banknote10Amount);
+        remaining -= need10 * 10;
+
+        if (remaining != 0) {
+            System.out.println("Невозможно выдать сумму " + amountToWithdraw);
+            return false;
+        }
+        banknote50Amount -= need50;
+        banknote20Amount -= need20;
+        banknote10Amount -= need10;
+
+        System.out.println("Выдано: 50 x " + need50 + ", 20 x " + need20 + ", 10 x " + need10);
         return true;
     }
 }
