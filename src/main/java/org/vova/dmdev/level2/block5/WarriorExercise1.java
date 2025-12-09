@@ -7,7 +7,7 @@ public class WarriorExercise1 extends HeroExercise1 {
 
     @Override
     public void attackEnemy(EnemyExercise1 enemy) {
-        System.out.println(getName() + " взмахнул мечом в" + enemy.getName());
+        System.out.println(getName() + " взмахнул мечом в " + enemy.getName());
         enemy.takeDamage(getDamage());
     }
 }

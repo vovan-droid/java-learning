@@ -13,8 +13,12 @@ public class TrainingGroundExercise1 {
     }
 
     public static void attackEnemy(EnemyExercise1 enemy, HeroExercise1... heroes) {
-        for (HeroExercise1 hero : heroes) {
-            hero.attackEnemy(enemy);
+        while (enemy.isAlive()) {
+            for (HeroExercise1 hero : heroes) {
+                if (enemy.isAlive()) {
+                    hero.attackEnemy(enemy);
+                }
+            }
         }
     }
 }
