@@ -7,6 +7,6 @@ public class MageExercise1 extends HeroExercise1 {
 
     @Override
     public void attackEnemy() {
-        System.out.println("Герой Mage атакует врага");
+        System.out.println(getName() + " сотворил заклинание");
     }
 }

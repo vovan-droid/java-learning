@@ -4,23 +4,27 @@ public class TrainingGroundExercise1 {
 
     public static void main(String[] args) {
         HeroExercise1 hero = new HeroExercise1("Hero");
-        System.out.println(hero.getName());
         hero.attackEnemy();
         System.out.println();
 
-        WarriorExercise1 warrior = new WarriorExercise1("Warrior");
-        System.out.println(warrior.getName());
+        HeroExercise1 warrior = new WarriorExercise1("Боромир");
         warrior.attackEnemy();
         System.out.println();
 
-        MageExercise1 mage = new MageExercise1("Mage");
-        System.out.println(mage.getName());
+        HeroExercise1 mage = new MageExercise1("Гэндольф");
         mage.attackEnemy();
         System.out.println();
 
-        ArcherExercise1 archer = new ArcherExercise1("Archer");
-        System.out.println(archer.getName());
+        HeroExercise1 archer = new ArcherExercise1("Леголас");
         archer.attackEnemy();
         System.out.println();
+
+        attackEnemy(warrior, mage, archer);
+    }
+
+    public static void attackEnemy(HeroExercise1... heroes) {
+        for (HeroExercise1 hero : heroes) {
+            hero.attackEnemy();
+        }
     }
 }

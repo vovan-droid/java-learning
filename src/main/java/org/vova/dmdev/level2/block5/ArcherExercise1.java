@@ -7,6 +7,6 @@ public class ArcherExercise1 extends HeroExercise1 {
 
     @Override
     public void attackEnemy() {
-        System.out.println("Герой Archer атакует врага");
+        System.out.println(getName() + " стрельнул из лука");
     }
 }
