@@ -1,6 +1,6 @@
 package org.vova.dmdev.level2.block5;
 
-public class HeroExercise1 {
+public abstract class HeroExercise1 {
     private String name;
     private int damage;
 
@@ -9,9 +9,7 @@ public class HeroExercise1 {
         this.damage = damage;
     }
 
-    public void attackEnemy(EnemyExercise1 enemy) {
-        System.out.println(name + " атакует врага " + enemy.getName());
-    }
+    public abstract void attackEnemy(EnemyExercise1 enemy);
 
     public String getName() {
         return name;
