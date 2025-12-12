@@ -1,4 +1,4 @@
-package org.vova.dmdev.level2.block5;
+package org.vova.dmdev.level2.block5.exercise2;
 
 public class testExercise2 {
     public static void main(String[] args) {
