@@ -1,4 +1,4 @@
-package org.vova.dmdev.level2.block5;
+package org.vova.dmdev.level2.block5.exercise3;
 
 public abstract class HeroExercise1 {
     private String name;

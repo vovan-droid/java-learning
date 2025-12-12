@@ -1,4 +1,4 @@
-package org.vova.dmdev.level2.block5;
+package org.vova.dmdev.level2.block5.exercise3;
 
 public class WarriorExercise1 extends HeroExercise1 {
     public WarriorExercise1(String name, int damage) {

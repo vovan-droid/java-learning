@@ -4,15 +4,19 @@ import java.awt.*;
 
 public final class ShapeUtils {
 
-    static boolean isRectangle(Figure figure) {
+    private ShapeUtils() {
+
+    }
+
+    public static boolean isRectangle(Figure figure) {
         return figure instanceof Rectangle;
     }
 
-    static boolean isTriangle(Figure figure) {
+    public static boolean isTriangle(Figure figure) {
         return figure instanceof Triangle;
     }
 
-    static boolean isCircle(Figure figure) {
+    public static boolean isCircle(Figure figure) {
         return figure instanceof Circle;
     }
 }
