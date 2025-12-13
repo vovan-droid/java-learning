@@ -1,7 +1,6 @@
 package org.vova.dmdev.level2.block6.exercise1;
 
 public class Pair<K, V> {
-
     private K key;
     private V value;
 
