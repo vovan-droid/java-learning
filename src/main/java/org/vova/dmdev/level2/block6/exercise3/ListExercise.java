@@ -2,11 +2,11 @@ package org.vova.dmdev.level2.block6.exercise3;
 
 import java.util.Iterator;
 
-public class List<T> implements Iterable<T> {
+public class ListExercise<T> implements Iterable<T> {
     private T[] objects;
     private int size;
 
-    public List(int initialSize) {
+    public ListExercise(int initialSize) {
         this.objects = (T[]) new Object[initialSize];
     }
 
