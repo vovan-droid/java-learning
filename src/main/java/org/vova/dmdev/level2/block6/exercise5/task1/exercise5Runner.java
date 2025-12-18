@@ -1,4 +1,4 @@
-package org.vova.dmdev.level2.block6.exercise5;
+package org.vova.dmdev.level2.block6.exercise5.task1;
 
 import java.util.LinkedList;
 import java.util.List;
