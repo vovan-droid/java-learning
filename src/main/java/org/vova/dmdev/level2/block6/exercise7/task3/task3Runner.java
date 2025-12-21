@@ -1,6 +1,7 @@
 package org.vova.dmdev.level2.block6.exercise7.task3;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 public class task3Runner {
@@ -33,11 +34,6 @@ public class task3Runner {
     }
 
     public static boolean isUnique(Map<String, String> map) {
-        for (String s : map.keySet()) {
-            if (map.get(s).equals(s)) {
-                return false;
-            }
-        }
-        return true;
+        return map.size() == new HashSet<>(map.values()).size();
     }
 }
