@@ -5,7 +5,7 @@ import java.util.*;
 public class task1Runner {
 
     public static void main(String[] args) {
-        String engText = new String("apple,# Apple Banana cat apple");
+        String engText = new String("apple,# Apple Banana cat apple.");
         System.out.println(engText);
         stringSplitter(engText);
     }
