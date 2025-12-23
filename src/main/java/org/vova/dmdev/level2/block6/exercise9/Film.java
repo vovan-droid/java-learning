@@ -7,6 +7,14 @@ public class Film {
     private Genre genre;
     private double rating;
 
+    public Film(int id, int year, int month, Genre genre, double rating) {
+        this.id = id;
+        this.year = year;
+        this.month = month;
+        this.genre = genre;
+        this.rating = rating;
+    }
+
     public int getId() {
         return id;
     }
@@ -45,5 +53,16 @@ public class Film {
 
     public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "id=" + id +
+                ", year=" + year +
+                ", month=" + month +
+                ", genre=" + genre +
+                ", rating=" + rating +
+                '}';
     }
 }
