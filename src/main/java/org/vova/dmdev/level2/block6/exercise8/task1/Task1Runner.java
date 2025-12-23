@@ -2,7 +2,7 @@ package org.vova.dmdev.level2.block6.exercise8.task1;
 
 import java.util.*;
 
-public class task1Runner {
+public class Task1Runner {
 
     public static void main(String[] args) {
         String engText = new String("apple,# Apple Banana cat apple.");

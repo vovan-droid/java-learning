@@ -3,12 +3,12 @@ package org.vova.dmdev.level2.block6.exercise5.task1;
 import java.util.List;
 import java.util.ListIterator;
 
-public class exercise5 {
+public class Exercise5 {
 
     private static final String TARGET_VALUE = "****";
     private static final int TARGET_LENGTH = 4;
 
-    private exercise5() {
+    private Exercise5() {
     }
 
     /**

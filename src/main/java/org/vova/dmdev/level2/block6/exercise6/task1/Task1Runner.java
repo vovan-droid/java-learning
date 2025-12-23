@@ -4,7 +4,7 @@ import java.util.*;
 
 import static org.vova.dmdev.level2.block6.exercise6.task1.ChatsUtil.deleteChatsUnder1000;
 
-public class task1Runner {
+public class Task1Runner {
 
     public static void main(String[] args) {
         Chat chat1 = new Chat("abcd", 2000);

@@ -1,6 +1,6 @@
 package org.vova.dmdev.level2.block5.exercise2;
 
-public class testExercise2 {
+public class TestExercise2 {
     public static void main(String[] args) {
         ATMExercise2 atm = new ATMExercise2(10, 9, 8);
         atm.addBanknotes10ToATM(10);

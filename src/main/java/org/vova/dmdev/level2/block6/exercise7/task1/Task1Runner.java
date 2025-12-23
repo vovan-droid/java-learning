@@ -3,7 +3,7 @@ package org.vova.dmdev.level2.block6.exercise7.task1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class task1Runner {
+public class Task1Runner {
 
     public static void main(String[] args) {
         List<Integer> list = List.of(-4, -2, 0, 1, 2, 3, 4, 5, 12, 20, 109);

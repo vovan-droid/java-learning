@@ -2,7 +2,7 @@ package org.vova.dmdev.level2.block6.exercise7.task4;
 
 import java.util.*;
 
-public class task4Runner {
+public class Task4Runner {
 
     public static void main(String[] args) {
         Map<Integer, Integer> polynomial1 = Map.of(

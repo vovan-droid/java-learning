@@ -1,10 +1,9 @@
 package org.vova.dmdev.level2.block6.exercise7.task3;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-public class task3Runner {
+public class Task3Runner {
 
     public static void main(String[] args) {
 //        Map<String, String> map = new HashMap<>();
