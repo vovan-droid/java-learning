@@ -56,7 +56,5 @@ public class Exercise9Runner {
         System.out.println(cinema.getFilmsByYearAndMonth(2020, 1));
 
         System.out.println(cinema.getTop10FilmsByRating());
-
-
     }
 }
