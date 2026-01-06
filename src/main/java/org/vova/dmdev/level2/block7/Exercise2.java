@@ -1,6 +1,6 @@
 package org.vova.dmdev.level2.block7;
 
-public class exercise2 {
+public class Exercise2 {
 
     public static void main(String[] args) {
         int[] values = {1, 4, 6, 7, 8};
