@@ -13,6 +13,6 @@ public class Exercise3Runner {
     }
 
     public static void throwMyException() throws MyException {
-            throw new MyException(new);
+            throw new MyException();
     }
 }
