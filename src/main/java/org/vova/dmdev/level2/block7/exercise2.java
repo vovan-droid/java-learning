@@ -3,10 +3,12 @@ package org.vova.dmdev.level2.block7;
 public class exercise2 {
 
     public static void main(String[] args) {
+        int[] values = {1, 4, 6, 7, 8};
         try {
-            IndexOutOfBoundsException ex = new IndexOutOfBoundsException();
-            throw ex;
-        } catch (IndexOutOfBoundsException e) {
+            for (int i = 0; i <= values.length; i++) {
+                System.out.println(values[i]);
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.err.println("Catch");
             e.printStackTrace();
         }
