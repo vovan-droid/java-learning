@@ -1,10 +1,8 @@
 package org.vova.dmdev.level2.block9.exercise1;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+
 
 public class Exercise1 {
 
