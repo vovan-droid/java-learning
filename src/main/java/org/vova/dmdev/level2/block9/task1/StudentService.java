@@ -42,4 +42,9 @@ public class StudentService {
                         )
                 ));
     }
+
+    public static Map<Integer, List<Student>> fullNamesOfStudentsByCourse(List<Student> students) {
+        return students.stream()
+                .collect(Collectors.groupingBy(Student::getCourseNumber));
+    }
 }
