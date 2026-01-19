@@ -39,5 +39,6 @@ public class Task1Runner {
 
         System.out.println(StudentService.avgByCourse(students));
         System.out.println(StudentService.fullNamesOfStudentsByCourse(students));
+        System.out.println(StudentService.toCourseMap(students));
     }
 }

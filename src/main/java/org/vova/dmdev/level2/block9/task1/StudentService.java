@@ -56,4 +56,30 @@ public class StudentService {
                         )
                 ));
     }
+
+    public static Map<Integer, CourseInfo> toCourseMap(List<Student> students) {
+        return students.stream()
+                .collect(Collectors.groupingBy(
+                        Student::getCourseNumber,
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),
+                                list -> {
+                                    // список из пункта 2
+                                    List<String> sortedNames = list.stream()
+                                            .map(s -> s.getFirstName() + " " + s.getLastName())
+                                            .sorted()
+                                            .collect(Collectors.toList());
+
+                                    // средняя оценка этих студентов
+                                    double avg = list.stream()
+                                            .flatMap(s -> s.getGrades().stream())
+                                            .mapToInt(Integer::intValue)
+                                            .average()
+                                            .orElse(0.0);
+
+                                    return new CourseInfo(sortedNames, avg);
+                                }
+                        )
+                ));
+    }
 }

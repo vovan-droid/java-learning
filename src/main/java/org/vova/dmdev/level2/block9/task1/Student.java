@@ -1,7 +1,6 @@
 package org.vova.dmdev.level2.block9.task1;
 
 import java.util.List;
-import java.util.OptionalDouble;
 
 public class Student {
     private String firstName;
