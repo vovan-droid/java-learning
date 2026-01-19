@@ -1,6 +1,6 @@
 package org.vova.drawing;
 
-public class FigureDrawer {
+public class FigureDrawerOld {
 
     public static final String ASTERIX = "*";
     public static final String SPACE = " ";

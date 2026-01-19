@@ -43,8 +43,17 @@ public class StudentService {
                 ));
     }
 
-    public static Map<Integer, List<Student>> fullNamesOfStudentsByCourse(List<Student> students) {
+    public static Map<Integer, List<String>> fullNamesOfStudentsByCourse(List<Student> students) {
         return students.stream()
-                .collect(Collectors.groupingBy(Student::getCourseNumber));
+                .collect(Collectors.groupingBy(
+                        Student::getCourseNumber,
+                        Collectors.collectingAndThen(
+                                Collectors.mapping(
+                                        s -> s.getFirstName() + " " + s.getLastName(),
+                                        Collectors.toList()
+                                ),
+                                list -> list.stream().sorted().collect(Collectors.toList())
+                        )
+                ));
     }
 }
