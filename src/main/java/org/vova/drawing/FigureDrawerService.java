@@ -4,7 +4,7 @@ public class FigureDrawerService {
 
     public static final String ASTERIX = "*";
     public static final String SPACE = " ";
-    private static final PatternDrawerService patternDrawer = PatternDrawerService.getInstance();
+    private final PatternDrawerService patternDrawer = PatternDrawerService.getInstance();
     private static FigureDrawerService figureDrawerService;
 
     public static FigureDrawerService getInstance() {

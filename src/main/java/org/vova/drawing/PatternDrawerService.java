@@ -13,7 +13,36 @@ public class PatternDrawerService {
         return patternDrawerService;
     }
 
+
     //Третья группа: (сервисные) методы, которым делегировано рисование отдельных частей фигур
+
+
+    void printDottedLines(int linesNumber, Dot... dots) {
+        for (int i = 0; i < linesNumber; i++) {
+            for (int j = 0; j < dots.length; j++) {
+                for (int k = 0; k < dots[j].getAmountOfSpacesInitial(); k++) {
+                    printSpaces(dots[k].getAmountOfSpacesInitial());
+                    System.out.print(ASTERIX);
+                }
+                for (int k = 0; k < dots[j].getAmountOfSpacesStep(); k++) {
+                    printSpaces(dots[k].getAmountOfSpacesStep());
+                    System.out.print(ASTERIX);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    void printDottedLines2(int linesNumber, Dot... dots) {
+        for (int i = 0; i < linesNumber; i++) {
+            for (int j = 0; j < dots.length; j++) {
+                int amountOfSpaces = dots[j].getAmountOfSpacesInitial() + (dots[j].getAmountOfSpacesStep() * i);
+                printSpaces(amountOfSpaces);
+                System.out.print(ASTERIX);
+            }
+            System.out.println();
+        }
+    }
 
 
     //Печатает пробелы до звездочек в цикле и ставит их
