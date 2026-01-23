@@ -149,7 +149,7 @@ public class FigureDrawerService {
         return this;
     }
 
-    FigureDrawerService drawHouse2(int size) {
+    FigureDrawerService drawHouse(int size) {
         drawTriangle2(size);
 
         int midHeightCrossForHouse = size / 2 - 1;
@@ -162,6 +162,35 @@ public class FigureDrawerService {
         for (int i = 0; i < midHeightCrossForHouse; i++) {
             patternDrawer.printDottedLine(0, midHeightCrossForHouse - 1 - i, 1 + 2 * i, midHeightCrossForHouse - 1 - i);
         }
+
+        patternDrawer.printSolidLine(size);
+        return this;
+    }
+
+    FigureDrawerService drawHouse1(int size) {
+        drawTriangle2(size);
+
+        int midHeightCrossForHouse = size / 2 - 1;
+        patternDrawer.printDottedLines(
+                midHeightCrossForHouse,
+                patternDrawer.new Dot(0, 0),
+                patternDrawer.new Dot(0, 1),
+                patternDrawer.new Dot(size - 4, -2),
+                patternDrawer.new Dot(0, 1)
+        );
+        patternDrawer.printDottedLines(
+                1,
+                patternDrawer.new Dot(0, 0),
+                patternDrawer.new Dot(midHeightCrossForHouse, 0),
+                patternDrawer.new Dot(midHeightCrossForHouse, 0)
+        );
+        patternDrawer.printDottedLines(
+                midHeightCrossForHouse,
+                patternDrawer.new Dot(0, 0),
+                patternDrawer.new Dot(midHeightCrossForHouse - 1, -1),
+                patternDrawer.new Dot(1, 2),
+                patternDrawer.new Dot(midHeightCrossForHouse - 1, -1)
+        );
 
         patternDrawer.printSolidLine(size);
         return this;

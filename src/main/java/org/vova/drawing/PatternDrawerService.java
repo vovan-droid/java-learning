@@ -1,5 +1,7 @@
 package org.vova.drawing;
 
+import java.util.Arrays;
+
 public class PatternDrawerService {
 
     public static final String ASTERIX = "*";
@@ -19,17 +21,8 @@ public class PatternDrawerService {
 
     void printDottedLines(int linesNumber, Dot... dots) {
         for (int i = 0; i < linesNumber; i++) {
-            for (int j = 0; j < dots.length; j++) {
-                for (int k = 0; k < dots[j].getAmountOfSpacesInitial(); k++) {
-                    printSpaces(dots[k].getAmountOfSpacesInitial());
-                    System.out.print(ASTERIX);
-                }
-                for (int k = 0; k < dots[j].getAmountOfSpacesStep(); k++) {
-                    printSpaces(dots[k].getAmountOfSpacesStep());
-                    System.out.print(ASTERIX);
-                }
-            }
-            System.out.println();
+            int[] ints = Arrays.stream(dots).mapToInt(Dot::getNextIndent).toArray();
+            printDottedLine(ints);
         }
     }
 
@@ -66,6 +59,30 @@ public class PatternDrawerService {
     void printSpaces(int amountOfSpacesBeforeChar1) {
         for (int i = 0; i < amountOfSpacesBeforeChar1; i++) {
             System.out.print(SPACE);
+        }
+    }
+
+    public class Dot {
+        private int amountOfSpacesInitial;
+        private int amountOfSpacesStep;
+        private int amountOfSpaces;
+
+        public Dot(int amountOfSpacesInitial, int amountOfSpacesStep) {
+            this.amountOfSpacesInitial = amountOfSpacesInitial;
+            this.amountOfSpacesStep = amountOfSpacesStep;
+            amountOfSpaces = amountOfSpacesInitial - amountOfSpacesStep;
+        }
+
+        public int getNextIndent() {
+            return amountOfSpaces += amountOfSpacesStep;
+        }
+
+        public int getAmountOfSpacesInitial() {
+            return amountOfSpacesInitial;
+        }
+
+        public int getAmountOfSpacesStep() {
+            return amountOfSpacesStep;
         }
     }
 }
