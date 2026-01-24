@@ -5,7 +5,7 @@ public class FigureDrawerRunner {
     public static void main(String[] args) {
         int size = 7;
 
-        FigureDrawerService.getInstance()
+        FigureDrawerService.newInstance()
                 .drawHorizontalLine(size)
                 .drawVerticalLine(size)
                 .drawNewLine()
@@ -23,8 +23,8 @@ public class FigureDrawerRunner {
                 .drawNewLine()
                 .drawCrossWithPrintDottedLine(size)
                 .drawNewLine()
-                .drawHouse(size)
+                .drawHouse1(size)
                 .drawNewLine()
-                .drawHouse1(size);
+                .drawHouse2(size);
     }
 }

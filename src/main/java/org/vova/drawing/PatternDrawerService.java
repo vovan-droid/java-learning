@@ -6,13 +6,9 @@ public class PatternDrawerService {
 
     public static final String ASTERIX = "*";
     public static final String SPACE = " ";
-    private static PatternDrawerService patternDrawerService;
 
-    public static PatternDrawerService getInstance() {
-        if (patternDrawerService == null) {
-            patternDrawerService = new PatternDrawerService();
-        }
-        return patternDrawerService;
+    public static PatternDrawerService newInstance() {
+        return new PatternDrawerService();
     }
 
 
@@ -25,18 +21,6 @@ public class PatternDrawerService {
             printDottedLine(ints);
         }
     }
-
-    void printDottedLines2(int linesNumber, Dot... dots) {
-        for (int i = 0; i < linesNumber; i++) {
-            for (int j = 0; j < dots.length; j++) {
-                int amountOfSpaces = dots[j].getAmountOfSpacesInitial() + (dots[j].getAmountOfSpacesStep() * i);
-                printSpaces(amountOfSpaces);
-                System.out.print(ASTERIX);
-            }
-            System.out.println();
-        }
-    }
-
 
     //Печатает пробелы до звездочек в цикле и ставит их
     void printDottedLine(int... amountOfSpacesBeforeAsterix) {
@@ -63,26 +47,16 @@ public class PatternDrawerService {
     }
 
     public class Dot {
-        private int amountOfSpacesInitial;
         private int amountOfSpacesStep;
         private int amountOfSpaces;
 
         public Dot(int amountOfSpacesInitial, int amountOfSpacesStep) {
-            this.amountOfSpacesInitial = amountOfSpacesInitial;
             this.amountOfSpacesStep = amountOfSpacesStep;
             amountOfSpaces = amountOfSpacesInitial - amountOfSpacesStep;
         }
 
         public int getNextIndent() {
             return amountOfSpaces += amountOfSpacesStep;
-        }
-
-        public int getAmountOfSpacesInitial() {
-            return amountOfSpacesInitial;
-        }
-
-        public int getAmountOfSpacesStep() {
-            return amountOfSpacesStep;
         }
     }
 }
