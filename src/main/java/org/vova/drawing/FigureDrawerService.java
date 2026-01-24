@@ -2,11 +2,20 @@ package org.vova.drawing;
 
 public class FigureDrawerService {
 
-    public static final String ASTERIX = "*";
-    public static final String SPACE = " ";
+    public String drawingChar = "*";
+    public String drawingSpace = " ";
 
     public static FigureDrawerService newInstance() {
         return new FigureDrawerService();
+    }
+
+    FigureDrawerService withDrawingChar(String drawingChar) {
+        this.drawingChar = drawingChar;
+        return this;
+    }
+    FigureDrawerService withDrawingSpace(String drawingSpace) {
+        this.drawingSpace = drawingSpace;
+        return this;
     }
 
     //Вторая группа: (функциональные) методы, рисующие фигуры полностью
@@ -26,7 +35,7 @@ public class FigureDrawerService {
 
     FigureDrawerService drawVerticalLine(int size) {
         for (int i = 0; i < size; i++) {
-            System.out.println(ASTERIX);
+            System.out.println(drawingChar);
         }
         return this;
     }
@@ -36,11 +45,11 @@ public class FigureDrawerService {
         pattern.printSolidLine(size);
 
         for (int i = 0; i < size - 2; i++) {
-            System.out.print(ASTERIX);
+            System.out.print(drawingChar);
             for (int j = 0; j < size - 2; j++) {
-                System.out.print(SPACE);
+                System.out.print(drawingSpace);
             }
-            System.out.println(ASTERIX);
+            System.out.println(drawingChar);
         }
 
         if (size != 1) {
@@ -64,14 +73,14 @@ public class FigureDrawerService {
     }
 
     FigureDrawerService drawTriangle1(int size) {
-        System.out.println(ASTERIX);
+        System.out.println(drawingChar);
 
         for (int i = 0; i < size - 2; i++) {
-            System.out.print(ASTERIX);
+            System.out.print(drawingChar);
             for (int j = 0; j < i; j++) {
-                System.out.print(SPACE);
+                System.out.print(drawingSpace);
             }
-            System.out.println(ASTERIX);
+            System.out.println(drawingChar);
         }
 
         if (size != 1) {
@@ -97,19 +106,19 @@ public class FigureDrawerService {
     FigureDrawerService drawTriangle2(int size) {
         int midHeight = size / 2 - 1;
         for (int i = 0; i <= midHeight; i++) {
-            System.out.print(SPACE);
+            System.out.print(drawingSpace);
         }
-        System.out.println(ASTERIX);
+        System.out.println(drawingChar);
 
         for (int i = 0; i < midHeight; i++) {
             for (int j = 0; j < midHeight - i; j++) {
-                System.out.print(SPACE);
+                System.out.print(drawingSpace);
             }
-            System.out.print(ASTERIX);
+            System.out.print(drawingChar);
             for (int k = 0; k < 2 * i + 1; k++) {
-                System.out.print(SPACE);
+                System.out.print(drawingSpace);
             }
-            System.out.println(ASTERIX);
+            System.out.println(drawingChar);
         }
 
         if (size != 1) {

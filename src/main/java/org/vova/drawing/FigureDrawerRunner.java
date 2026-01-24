@@ -6,6 +6,8 @@ public class FigureDrawerRunner {
         int size = 7;
 
         FigureDrawerService.newInstance()
+                .withDrawingChar("+")
+                .withDrawingSpace(" ")
                 .drawHorizontalLine(size)
                 .drawVerticalLine(size)
                 .drawNewLine()
