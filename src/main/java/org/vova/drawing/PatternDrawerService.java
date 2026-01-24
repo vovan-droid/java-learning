@@ -31,6 +31,13 @@ public class PatternDrawerService {
         System.out.println();
     }
 
+    //Печатает пробелы в цикле
+    void printSpaces(int amountOfSpacesBeforeChar1) {
+        for (int i = 0; i < amountOfSpacesBeforeChar1; i++) {
+            System.out.print(SPACE);
+        }
+    }
+
     //Печатает звездочки в цикле и переводит строку после цикла
     void printSolidLine(int amountOfAsterixes) {
         for (int i = 0; i < amountOfAsterixes; i++) {
@@ -39,12 +46,6 @@ public class PatternDrawerService {
         System.out.println();
     }
 
-    //Печатает пробелы в цикле
-    void printSpaces(int amountOfSpacesBeforeChar1) {
-        for (int i = 0; i < amountOfSpacesBeforeChar1; i++) {
-            System.out.print(SPACE);
-        }
-    }
 
     public class Dot {
         private int amountOfSpacesStep;

@@ -133,7 +133,7 @@ public class FigureDrawerService {
         return this;
     }
 
-    FigureDrawerService drawCrossWithPrintDottedLine(int size) {
+    FigureDrawerService drawCrossWithDottedLine(int size) {
         PatternDrawerService pattern = PatternDrawerService.newInstance();
         int midHeightCross = size / 2;
 
@@ -149,34 +149,59 @@ public class FigureDrawerService {
         return this;
     }
 
-    FigureDrawerService drawHouse1(int size) {
+    FigureDrawerService drawHouseWithDottedLine(int size) {
         PatternDrawerService pattern = PatternDrawerService.newInstance();
+        int midHeight = size / 2 - 1;
 
-        drawTriangle2(size);
+        pattern.printDottedLine(midHeight + 1);
 
-        int midHeightCrossForHouse = size / 2 - 1;
-        for (int i = 0; i < midHeightCrossForHouse; i++) {
+        for (int i = 0; i < midHeight; i++) {
+            pattern.printDottedLine(midHeight - i, 2 * i + 1);
+        }
+
+        if (size != 1) {
+            pattern.printSolidLine(size);
+        }
+
+        for (int i = 0; i < midHeight; i++) {
             pattern.printDottedLine(0, i, size - 4 - 2 * i, i);
         }
 
-        pattern.printDottedLine(0, midHeightCrossForHouse, midHeightCrossForHouse);
+        pattern.printDottedLine(0, midHeight, midHeight);
 
-        for (int i = 0; i < midHeightCrossForHouse; i++) {
-            pattern.printDottedLine(0, midHeightCrossForHouse - 1 - i, 1 + 2 * i, midHeightCrossForHouse - 1 - i);
+        for (int i = 0; i < midHeight; i++) {
+            pattern.printDottedLine(0, midHeight - 1 - i, 1 + 2 * i, midHeight - 1 - i);
         }
 
         pattern.printSolidLine(size);
+
         return this;
     }
 
-    FigureDrawerService drawHouse2(int size) {
+    FigureDrawerService drawHouseWithDottedLines(int size) {
         PatternDrawerService pattern = PatternDrawerService.newInstance();
+        int midHeight = size / 2 - 1;
 
-        drawTriangle2(size);
-
-        int midHeightCrossForHouse = size / 2 - 1;
         pattern.printDottedLines(
-                midHeightCrossForHouse,
+                1,
+                pattern.new Dot(midHeight + 1, 0)
+        );
+
+        if (midHeight > 0) {
+            pattern.printDottedLines(
+                    midHeight,
+                    pattern.new Dot(midHeight, -1),
+                    pattern.new Dot(1, 2)
+            );
+        }
+
+        if (size != 1) {
+            pattern.printSolidLine(size);
+        }
+
+
+        pattern.printDottedLines(
+                midHeight,
                 pattern.new Dot(0, 0),
                 pattern.new Dot(0, 1),
                 pattern.new Dot(size - 4, -2),
@@ -185,18 +210,19 @@ public class FigureDrawerService {
         pattern.printDottedLines(
                 1,
                 pattern.new Dot(0, 0),
-                pattern.new Dot(midHeightCrossForHouse, 0),
-                pattern.new Dot(midHeightCrossForHouse, 0)
+                pattern.new Dot(midHeight, 0),
+                pattern.new Dot(midHeight, 0)
         );
         pattern.printDottedLines(
-                midHeightCrossForHouse,
+                midHeight,
                 pattern.new Dot(0, 0),
-                pattern.new Dot(midHeightCrossForHouse - 1, -1),
+                pattern.new Dot(midHeight - 1, -1),
                 pattern.new Dot(1, 2),
-                pattern.new Dot(midHeightCrossForHouse - 1, -1)
+                pattern.new Dot(midHeight - 1, -1)
         );
 
         pattern.printSolidLine(size);
+
         return this;
     }
 }

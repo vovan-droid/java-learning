@@ -21,10 +21,10 @@ public class FigureDrawerRunner {
                 .drawNewLine()
                 .drawTriangle2WithDottedLine(size)
                 .drawNewLine()
-                .drawCrossWithPrintDottedLine(size)
+                .drawCrossWithDottedLine(size)
                 .drawNewLine()
-                .drawHouse1(size)
+                .drawHouseWithDottedLine(size)
                 .drawNewLine()
-                .drawHouse2(size);
+                .drawHouseWithDottedLines(size);
     }
 }
