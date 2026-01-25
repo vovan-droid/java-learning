@@ -2,20 +2,11 @@ package org.vova.drawing;
 
 public class FigureDrawerService {
 
-    public String drawingChar = "*";
-    public String drawingSpace = " ";
+    public static final String drawingChar = "*";
+    public static final String drawingSpace = " ";
 
     public static FigureDrawerService newInstance() {
         return new FigureDrawerService();
-    }
-
-    FigureDrawerService withDrawingChar(String drawingChar) {
-        this.drawingChar = drawingChar;
-        return this;
-    }
-    FigureDrawerService withDrawingSpace(String drawingSpace) {
-        this.drawingSpace = drawingSpace;
-        return this;
     }
 
     //Вторая группа: (функциональные) методы, рисующие фигуры полностью
@@ -168,9 +159,7 @@ public class FigureDrawerService {
             pattern.printDottedLine(midHeight - i, 2 * i + 1);
         }
 
-        if (size != 1) {
             pattern.printSolidLine(size);
-        }
 
         for (int i = 0; i < midHeight; i++) {
             pattern.printDottedLine(0, i, size - 4 - 2 * i, i);
@@ -191,43 +180,35 @@ public class FigureDrawerService {
         PatternDrawerService pattern = PatternDrawerService.newInstance();
         int midHeight = size / 2 - 1;
 
-        pattern.printDottedLines(
-                1,
-                pattern.new Dot(midHeight + 1, 0)
-        );
-
-        if (midHeight > 0) {
-            pattern.printDottedLines(
-                    midHeight,
-                    pattern.new Dot(midHeight, -1),
-                    pattern.new Dot(1, 2)
-            );
-        }
-
-        if (size != 1) {
-            pattern.printSolidLine(size);
-        }
-
+        pattern.printDottedLine(midHeight + 1);
 
         pattern.printDottedLines(
                 midHeight,
-                pattern.new Dot(0, 0),
-                pattern.new Dot(0, 1),
-                pattern.new Dot(size - 4, -2),
-                pattern.new Dot(0, 1)
+                PatternDrawerService.dot(midHeight, -1),
+                PatternDrawerService.dot(1, 2)
+        );
+
+        pattern.printSolidLine(size);
+
+        pattern.printDottedLines(
+                midHeight,
+                PatternDrawerService.dot(0, 0),
+                PatternDrawerService.dot(0, 1),
+                PatternDrawerService.dot(size - 4, -2),
+                PatternDrawerService.dot(0, 1)
         );
         pattern.printDottedLines(
                 1,
-                pattern.new Dot(0, 0),
-                pattern.new Dot(midHeight, 0),
-                pattern.new Dot(midHeight, 0)
+                PatternDrawerService.dot(0, 0),
+                PatternDrawerService.dot(midHeight, 0),
+                PatternDrawerService.dot(midHeight, 0)
         );
         pattern.printDottedLines(
                 midHeight,
-                pattern.new Dot(0, 0),
-                pattern.new Dot(midHeight - 1, -1),
-                pattern.new Dot(1, 2),
-                pattern.new Dot(midHeight - 1, -1)
+                PatternDrawerService.dot(0, 0),
+                PatternDrawerService.dot(midHeight - 1, -1),
+                PatternDrawerService.dot(1, 2),
+                PatternDrawerService.dot(midHeight - 1, -1)
         );
 
         pattern.printSolidLine(size);
