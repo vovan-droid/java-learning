@@ -24,6 +24,25 @@ public class PatternDrawerService {
 
     //Третья группа: (сервисные) методы, которым делегировано рисование отдельных частей фигур
 
+    public void printDottedLinesEx(int linesNumber, Point... points) {
+        char space = drawingSpace.charAt(0);
+        char star = drawingChar.charAt(0);
+
+        LineBuffer buffer = new LineBuffer(space);
+
+        for (int i = 0; i < linesNumber; i++) {
+
+            for (Point p : points) {
+                int pos = p.nextPosition();
+                if (pos >= 0) {
+                    buffer.setChar(pos, star);
+                }
+            }
+
+            buffer.print();
+        }
+    }
+
 
     PatternDrawerService printDottedLines(int linesNumber, Dot... dots) {
         for (int i = 0; i < linesNumber; i++) {
@@ -76,6 +95,47 @@ public class PatternDrawerService {
 
         public int getNextIndent() {
             return amountOfSpaces += amountOfSpacesStep;
+        }
+    }
+
+    public static class Point {
+        private final int initialPosition;
+        private final int step;
+        private int current;
+
+        public Point(int initialPosition, int step) {
+            this.initialPosition = initialPosition;
+            this.step = step;
+            this.current = initialPosition;
+        }
+
+        // позиция для текущей строки
+        public int nextPosition() {
+            int result = current;
+            current += step;
+            return result;
+        }
+    }
+
+    private static class LineBuffer {
+        private final StringBuilder sb = new StringBuilder();
+        private final char spaceChar;
+
+        private LineBuffer(char spaceChar) {
+            this.spaceChar = spaceChar;
+        }
+
+
+        public void setChar(int position, char ch) {
+            while (sb.length() <= position) {
+                sb.append(spaceChar);
+            }
+            sb.setCharAt(position, ch);
+        }
+
+        public void print() {
+            System.out.println(sb.toString());
+            sb.setLength(0);
         }
     }
 }

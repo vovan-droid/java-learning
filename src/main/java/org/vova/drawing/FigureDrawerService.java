@@ -159,7 +159,7 @@ public class FigureDrawerService {
             pattern.printDottedLine(midHeight - i, 2 * i + 1);
         }
 
-            pattern.printSolidLine(size);
+        pattern.printSolidLine(size);
 
         for (int i = 0; i < midHeight; i++) {
             pattern.printDottedLine(0, i, size - 4 - 2 * i, i);
@@ -212,6 +212,49 @@ public class FigureDrawerService {
         );
 
         pattern.printSolidLine(size);
+
+        return this;
+    }
+
+    public FigureDrawerService drawHouseEx(int size) {
+        PatternDrawerService p = PatternDrawerService.newInstance();
+
+
+        int midHeight = size / 2 - 1;
+        int roofLines = midHeight + 1;
+
+        p.printDottedLinesEx(
+                roofLines,
+                new PatternDrawerService.Point(midHeight + 1, -1),
+                new PatternDrawerService.Point(midHeight + 1, 1)
+        );
+
+        p.printSolidLine(size);
+
+        p.printDottedLinesEx(
+                midHeight,
+                new PatternDrawerService.Point(0, 0),
+                new PatternDrawerService.Point(1, 1),
+                new PatternDrawerService.Point(5, -1),
+                new PatternDrawerService.Point(6, 0)
+        );
+
+        p.printDottedLinesEx(
+                1,
+                new PatternDrawerService.Point(0, 0),
+                new PatternDrawerService.Point(midHeight + 1, 0),
+                new PatternDrawerService.Point(size - 1, 0)
+        );
+
+        p.printDottedLinesEx(
+                midHeight,
+                new PatternDrawerService.Point(0, 0),
+                new PatternDrawerService.Point(2, -1),
+                new PatternDrawerService.Point(4, 1),
+                new PatternDrawerService.Point(6, 0)
+        );
+
+        p.printSolidLine(size);
 
         return this;
     }
