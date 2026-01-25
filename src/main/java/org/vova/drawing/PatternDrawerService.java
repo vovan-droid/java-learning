@@ -31,14 +31,12 @@ public class PatternDrawerService {
         LineBuffer buffer = new LineBuffer(space);
 
         for (int i = 0; i < linesNumber; i++) {
-
             for (Point p : points) {
                 int pos = p.nextPosition();
                 if (pos >= 0) {
                     buffer.setChar(pos, star);
                 }
             }
-
             buffer.print();
         }
     }
@@ -90,7 +88,7 @@ public class PatternDrawerService {
 
         public Dot(int amountOfSpacesInitial, int amountOfSpacesStep) {
             this.amountOfSpacesStep = amountOfSpacesStep;
-            amountOfSpaces = amountOfSpacesInitial - amountOfSpacesStep;
+            this.amountOfSpaces = amountOfSpacesInitial - amountOfSpacesStep;
         }
 
         public int getNextIndent() {
@@ -99,12 +97,10 @@ public class PatternDrawerService {
     }
 
     public static class Point {
-        private final int initialPosition;
         private final int step;
         private int current;
 
         public Point(int initialPosition, int step) {
-            this.initialPosition = initialPosition;
             this.step = step;
             this.current = initialPosition;
         }
@@ -134,7 +130,7 @@ public class PatternDrawerService {
         }
 
         public void print() {
-            System.out.println(sb.toString());
+            System.out.println(sb);
             sb.setLength(0);
         }
     }

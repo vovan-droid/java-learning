@@ -219,39 +219,23 @@ public class FigureDrawerService {
     public FigureDrawerService drawHouseEx(int size) {
         PatternDrawerService p = PatternDrawerService.newInstance();
 
-
         int midHeight = size / 2 - 1;
-        int roofLines = midHeight + 1;
+        int center = midHeight + 1;
 
         p.printDottedLinesEx(
-                roofLines,
-                new PatternDrawerService.Point(midHeight + 1, -1),
-                new PatternDrawerService.Point(midHeight + 1, 1)
+                center,
+                new PatternDrawerService.Point(center, -1),
+                new PatternDrawerService.Point(center, 1)
         );
 
         p.printSolidLine(size);
 
         p.printDottedLinesEx(
-                midHeight,
+                size - 2,
                 new PatternDrawerService.Point(0, 0),
                 new PatternDrawerService.Point(1, 1),
-                new PatternDrawerService.Point(5, -1),
-                new PatternDrawerService.Point(6, 0)
-        );
-
-        p.printDottedLinesEx(
-                1,
-                new PatternDrawerService.Point(0, 0),
-                new PatternDrawerService.Point(midHeight + 1, 0),
+                new PatternDrawerService.Point(size - 2, -1),
                 new PatternDrawerService.Point(size - 1, 0)
-        );
-
-        p.printDottedLinesEx(
-                midHeight,
-                new PatternDrawerService.Point(0, 0),
-                new PatternDrawerService.Point(2, -1),
-                new PatternDrawerService.Point(4, 1),
-                new PatternDrawerService.Point(6, 0)
         );
 
         p.printSolidLine(size);

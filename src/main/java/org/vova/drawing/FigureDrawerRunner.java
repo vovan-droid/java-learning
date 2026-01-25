@@ -7,6 +7,7 @@ public class FigureDrawerRunner {
 
         FigureDrawerService.newInstance()
                 .drawHorizontalLine(size)
+                .drawNewLine()
                 .drawVerticalLine(size)
                 .drawNewLine()
                 .drawSquare(size)
