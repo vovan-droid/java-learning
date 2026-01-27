@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class PatternDrawerService {
 
-    public String drawingChar = "*";
-    public String drawingSpace = " ";
+    private String drawingChar = "*";
+    private String drawingSpace = " ";
 
     public static PatternDrawerService newInstance() {
         return new PatternDrawerService();
@@ -24,21 +24,20 @@ public class PatternDrawerService {
 
     //Третья группа: (сервисные) методы, которым делегировано рисование отдельных частей фигур
 
-    public void printDottedLinesEx(int linesNumber, Point... points) {
+    PatternDrawerService printDottedLinesEx(int linesNumber, Point... points) {
         char space = drawingSpace.charAt(0);
         char star = drawingChar.charAt(0);
 
-        LineBuffer buffer = new LineBuffer(space);
+        LineBuffer buffer = new LineBuffer(space, star);
 
         for (int i = 0; i < linesNumber; i++) {
             for (Point p : points) {
                 int pos = p.nextPosition();
-                if (pos >= 0) {
-                    buffer.setChar(pos, star);
-                }
+                buffer.setChar(pos);
             }
             buffer.print();
         }
+        return this;
     }
 
 
@@ -81,12 +80,16 @@ public class PatternDrawerService {
         return new Dot(amountOfSpacesInitial, amountOfSpacesStep);
     }
 
+    public static Point point(int initialPosition, int step) {
+        return new Point(initialPosition, step);
+    }
+
 
     public static class Dot {
         private int amountOfSpacesStep;
         private int amountOfSpaces;
 
-        public Dot(int amountOfSpacesInitial, int amountOfSpacesStep) {
+        private Dot(int amountOfSpacesInitial, int amountOfSpacesStep) {
             this.amountOfSpacesStep = amountOfSpacesStep;
             this.amountOfSpaces = amountOfSpacesInitial - amountOfSpacesStep;
         }
@@ -100,7 +103,7 @@ public class PatternDrawerService {
         private final int step;
         private int current;
 
-        public Point(int initialPosition, int step) {
+        private Point(int initialPosition, int step) {
             this.step = step;
             this.current = initialPosition;
         }
@@ -113,20 +116,25 @@ public class PatternDrawerService {
         }
     }
 
-    private static class LineBuffer {
+    private class LineBuffer {
         private final StringBuilder sb = new StringBuilder();
         private final char spaceChar;
+        private final char drawChar;
 
-        private LineBuffer(char spaceChar) {
+
+        private LineBuffer(char spaceChar, char drawChar) {
             this.spaceChar = spaceChar;
+            this.drawChar = drawChar;
         }
 
-
-        public void setChar(int position, char ch) {
+        public void setChar(int position) {
+            if (position < 0) {
+                throw new IllegalArgumentException("Position cannot be negative");
+            }
             while (sb.length() <= position) {
                 sb.append(spaceChar);
             }
-            sb.setCharAt(position, ch);
+            sb.setCharAt(position, drawChar);
         }
 
         public void print() {

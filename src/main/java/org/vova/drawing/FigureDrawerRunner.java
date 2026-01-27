@@ -23,7 +23,8 @@ public class FigureDrawerRunner {
                 .drawTriangle2WithDottedLine(size)
                 .drawNewLine()
                 .drawCrossWithDottedLine(size)
-                .drawNewLine()
+                .drawNewLine();
+        HouseDrawer.newInstance()
                 .drawHouseWithDottedLine(size)
                 .drawNewLine()
                 .drawHouseWithDottedLines(size)
