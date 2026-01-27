@@ -22,13 +22,11 @@ public class PatternDrawerService {
     }
 
 
-    //Третья группа: (сервисные) методы, которым делегировано рисование отдельных частей фигур
-
     PatternDrawerService printDottedLinesEx(int linesNumber, Point... points) {
         char space = drawingSpace.charAt(0);
         char star = drawingChar.charAt(0);
 
-        LineBuffer buffer = new LineBuffer(space, star);
+        LineBuffer buffer = new LineBuffer();
 
         for (int i = 0; i < linesNumber; i++) {
             for (Point p : points) {
@@ -49,7 +47,6 @@ public class PatternDrawerService {
         return this;
     }
 
-    //Печатает пробелы до звездочек в цикле и ставит их
     PatternDrawerService printDottedLine(int... amountOfSpacesBeforeAsterix) {
         for (int i = 0; i < amountOfSpacesBeforeAsterix.length; i++) {
             printSpaces(amountOfSpacesBeforeAsterix[i]);
@@ -59,7 +56,6 @@ public class PatternDrawerService {
         return this;
     }
 
-    //Печатает пробелы в цикле
     PatternDrawerService printSpaces(int amountOfSpacesBeforeChar1) {
         for (int i = 0; i < amountOfSpacesBeforeChar1; i++) {
             System.out.print(drawingSpace);
@@ -67,7 +63,6 @@ public class PatternDrawerService {
         return this;
     }
 
-    //Печатает звездочки в цикле и переводит строку после цикла
     PatternDrawerService printSolidLine(int amountOfAsterixes) {
         for (int i = 0; i < amountOfAsterixes; i++) {
             System.out.print(drawingChar);
@@ -105,14 +100,11 @@ public class PatternDrawerService {
 
         private Point(int initialPosition, int step) {
             this.step = step;
-            this.current = initialPosition;
+            this.current = initialPosition - step;
         }
 
-        // позиция для текущей строки
         public int nextPosition() {
-            int result = current;
-            current += step;
-            return result;
+            return current += step;
         }
     }
 
@@ -122,9 +114,9 @@ public class PatternDrawerService {
         private final char drawChar;
 
 
-        private LineBuffer(char spaceChar, char drawChar) {
-            this.spaceChar = spaceChar;
-            this.drawChar = drawChar;
+        private LineBuffer() {
+            this.spaceChar = PatternDrawerService.this.drawingSpace.charAt(0);
+            this.drawChar = PatternDrawerService.this.drawingChar.charAt(0);
         }
 
         public void setChar(int position) {

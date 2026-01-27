@@ -12,10 +12,6 @@ public class FigureDrawerService {
         return new FigureDrawerService();
     }
 
-    //Вторая группа: (функциональные) методы, рисующие фигуры полностью
-
-
-    //If size >= 1
 
     FigureDrawerService drawNewLine() {
         System.out.println();

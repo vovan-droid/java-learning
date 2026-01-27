@@ -24,7 +24,9 @@ public class FigureDrawerRunner {
                 .drawNewLine()
                 .drawCrossWithDottedLine(size)
                 .drawNewLine();
-        HouseDrawer.newInstance()
+        HouseDrawerService.newInstance()
+                .drawHouseRaw(size)
+                .drawNewLine()
                 .drawHouseWithDottedLine(size)
                 .drawNewLine()
                 .drawHouseWithDottedLines(size)
