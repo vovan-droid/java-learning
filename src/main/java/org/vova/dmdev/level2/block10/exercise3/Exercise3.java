@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-private class Exercise3 {
+public class Exercise3 {
     private static void main(String[] args) throws IOException {
         Path path = Path.of("src/main/java/org/vova/dmdev/level2/block10/exercise3/exercise3.txt");
         Files.readAllLines(path).stream()
