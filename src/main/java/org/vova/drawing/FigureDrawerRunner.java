@@ -25,13 +25,13 @@ public class FigureDrawerRunner {
                 .drawCrossWithDottedLine(size)
                 .drawNewLine();
         HouseDrawerService.newInstance()
-                .drawHouseRaw(size)
+                .drawHouseLvl0(size)
                 .drawNewLine()
-                .drawHouseWithDottedLine(size)
+                .drawHouseLvl1(size)
                 .drawNewLine()
-                .drawHouseWithDottedLines(size)
+                .drawHouseLvl2(size)
                 .drawNewLine()
-                .drawHouseEx(size)
+                .drawHouseLvl3(size)
                 .drawNewLine();
     }
 }

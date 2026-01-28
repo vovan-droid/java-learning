@@ -8,7 +8,7 @@ public class HouseDrawerService {
         return new HouseDrawerService();
     }
 
-    public HouseDrawerService drawHouseEx(int size) {
+    public HouseDrawerService drawHouseLvl3(int size) {
         int midHeight = size / 2 - 1;
         int center = midHeight + 1;
         PatternDrawerService.newInstance()
@@ -19,7 +19,7 @@ public class HouseDrawerService {
         return this;
     }
 
-    HouseDrawerService drawHouseWithDottedLines(int size) {
+    HouseDrawerService drawHouseLvl2(int size) {
         int midHeight = size / 2 - 1;
         PatternDrawerService.newInstance()
                 .printDottedLine(midHeight + 1)
@@ -32,7 +32,7 @@ public class HouseDrawerService {
         return this;
     }
 
-    HouseDrawerService drawHouseWithDottedLine(int size) {
+    HouseDrawerService drawHouseLvl1(int size) {
         int midHeight = size / 2 - 1;
         PatternDrawerService pattern = PatternDrawerService.newInstance();
         pattern.printDottedLine(midHeight + 1);
@@ -51,7 +51,7 @@ public class HouseDrawerService {
         return this;
     }
 
-    HouseDrawerService drawHouseRaw(int size) {
+    HouseDrawerService drawHouseLvl0(int size) {
         int midHeight = size / 2 - 1;
         for (int i = 0; i <= midHeight; i++) {
             System.out.print(" ");
