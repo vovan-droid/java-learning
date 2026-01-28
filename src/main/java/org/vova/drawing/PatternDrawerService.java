@@ -21,13 +21,8 @@ public class PatternDrawerService {
         return this;
     }
 
-
     PatternDrawerService printDottedLinesEx(int linesNumber, Point... points) {
-        char space = drawingSpace.charAt(0);
-        char star = drawingChar.charAt(0);
-
         LineBuffer buffer = new LineBuffer();
-
         for (int i = 0; i < linesNumber; i++) {
             for (Point p : points) {
                 int pos = p.nextPosition();
@@ -38,7 +33,6 @@ public class PatternDrawerService {
         return this;
     }
 
-
     PatternDrawerService printDottedLines(int linesNumber, Dot... dots) {
         for (int i = 0; i < linesNumber; i++) {
             int[] ints = Arrays.stream(dots).mapToInt(Dot::getNextIndent).toArray();
@@ -48,8 +42,8 @@ public class PatternDrawerService {
     }
 
     PatternDrawerService printDottedLine(int... amountOfSpacesBeforeAsterix) {
-        for (int i = 0; i < amountOfSpacesBeforeAsterix.length; i++) {
-            printSpaces(amountOfSpacesBeforeAsterix[i]);
+        for (int ofSpacesBeforeAsterix : amountOfSpacesBeforeAsterix) {
+            printSpaces(ofSpacesBeforeAsterix);
             System.out.print(drawingChar);
         }
         System.out.println();
@@ -79,9 +73,8 @@ public class PatternDrawerService {
         return new Point(initialPosition, step);
     }
 
-
     public static class Dot {
-        private int amountOfSpacesStep;
+        private final int amountOfSpacesStep;
         private int amountOfSpaces;
 
         private Dot(int amountOfSpacesInitial, int amountOfSpacesStep) {

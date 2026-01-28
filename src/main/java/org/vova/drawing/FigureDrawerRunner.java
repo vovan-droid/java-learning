@@ -31,6 +31,7 @@ public class FigureDrawerRunner {
                 .drawNewLine()
                 .drawHouseWithDottedLines(size)
                 .drawNewLine()
-                .drawHouseEx(size);
+                .drawHouseEx(size)
+                .drawNewLine();
     }
 }

@@ -1,8 +1,5 @@
 package org.vova.drawing;
 
-import static org.vova.drawing.PatternDrawerService.dot;
-import static org.vova.drawing.PatternDrawerService.point;
-
 public class FigureDrawerService {
 
     public static final String drawingChar = "*";
@@ -33,7 +30,6 @@ public class FigureDrawerService {
     FigureDrawerService drawSquare(int size) {
         PatternDrawerService pattern = PatternDrawerService.newInstance();
         pattern.printSolidLine(size);
-
         for (int i = 0; i < size - 2; i++) {
             System.out.print(drawingChar);
             for (int j = 0; j < size - 2; j++) {
@@ -41,7 +37,6 @@ public class FigureDrawerService {
             }
             System.out.println(drawingChar);
         }
-
         if (size != 1) {
             pattern.printSolidLine(size);
         }
@@ -51,11 +46,9 @@ public class FigureDrawerService {
     FigureDrawerService drawSquareWithDottedLine(int size) {
         PatternDrawerService pattern = PatternDrawerService.newInstance();
         pattern.printSolidLine(size);
-
         for (int i = 0; i < size - 2; i++) {
             pattern.printDottedLine(0, size - 2);
         }
-
         if (size != 1) {
             pattern.printSolidLine(size);
         }
@@ -64,7 +57,6 @@ public class FigureDrawerService {
 
     FigureDrawerService drawTriangle1(int size) {
         System.out.println(drawingChar);
-
         for (int i = 0; i < size - 2; i++) {
             System.out.print(drawingChar);
             for (int j = 0; j < i; j++) {
@@ -72,7 +64,6 @@ public class FigureDrawerService {
             }
             System.out.println(drawingChar);
         }
-
         if (size != 1) {
             PatternDrawerService.newInstance().printSolidLine(size);
         }
@@ -82,11 +73,9 @@ public class FigureDrawerService {
     FigureDrawerService drawTriangle1WithDottedLine(int size) {
         PatternDrawerService pattern = PatternDrawerService.newInstance();
         pattern.printDottedLine(0);
-
         for (int i = 0; i < size - 2; i++) {
             pattern.printDottedLine(0, i);
         }
-
         if (size != 1) {
             pattern.printSolidLine(size);
         }
@@ -99,7 +88,6 @@ public class FigureDrawerService {
             System.out.print(drawingSpace);
         }
         System.out.println(drawingChar);
-
         for (int i = 0; i < midHeight; i++) {
             for (int j = 0; j < midHeight - i; j++) {
                 System.out.print(drawingSpace);
@@ -110,7 +98,6 @@ public class FigureDrawerService {
             }
             System.out.println(drawingChar);
         }
-
         if (size != 1) {
             PatternDrawerService.newInstance().printSolidLine(size);
         }
@@ -121,11 +108,9 @@ public class FigureDrawerService {
         PatternDrawerService pattern = PatternDrawerService.newInstance();
         int midHeight = size / 2 - 1;
         pattern.printDottedLine(midHeight + 1);
-
         for (int i = 0; i < midHeight; i++) {
             pattern.printDottedLine(midHeight - i, 2 * i + 1);
         }
-
         if (size != 1) {
             pattern.printSolidLine(size);
         }
@@ -135,13 +120,10 @@ public class FigureDrawerService {
     FigureDrawerService drawCrossWithDottedLine(int size) {
         PatternDrawerService pattern = PatternDrawerService.newInstance();
         int midHeightCross = size / 2;
-
         for (int i = 0; i < midHeightCross; i++) {
             pattern.printDottedLine(i, size - 2 - 2 * i);
         }
-
         pattern.printDottedLine(midHeightCross);
-
         for (int i = 0; i < midHeightCross; i++) {
             pattern.printDottedLine(midHeightCross - 1 - i, 1 + 2 * i);
         }

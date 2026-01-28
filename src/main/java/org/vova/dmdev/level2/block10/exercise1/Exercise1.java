@@ -1,7 +1,6 @@
 package org.vova.dmdev.level2.block10.exercise1;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
 
@@ -15,7 +14,7 @@ public class Exercise1 {
             while (scanner.hasNext()) {
                 String word = scanner.next();
                 char firstSymbol = word.charAt(0);
-                if(VOWELS.indexOf(firstSymbol) != -1) {
+                if (VOWELS.indexOf(firstSymbol) != -1) {
                     System.out.println(word);
                 }
             }
