@@ -5,6 +5,7 @@ public class FigureDrawerRunner {
     public static void main(String[] args) {
         int size = 7;
 
+        // Drawing different figures, with an empty line between them
         FigureDrawerService.newInstance()
                 .drawHorizontalLine(size)
                 .drawNewLine()
@@ -24,6 +25,8 @@ public class FigureDrawerRunner {
                 .drawNewLine()
                 .drawCrossWithDottedLine(size)
                 .drawNewLine();
+
+        // Drawing a house using all 4 levels of abstraction, starting from the most non-optimized
         HouseDrawerService.newInstance()
                 .drawHouseLvl0(size)
                 .drawNewLine()
