@@ -9,7 +9,6 @@ public class FigureDrawerService {
         return new FigureDrawerService();
     }
 
-
     FigureDrawerService drawNewLine() {
         System.out.println();
         return this;

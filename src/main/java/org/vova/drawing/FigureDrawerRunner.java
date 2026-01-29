@@ -28,13 +28,13 @@ public class FigureDrawerRunner {
 
         // Drawing a house using all 4 levels of abstraction, starting from the most non-optimized
         HouseDrawerService.newInstance()
-                .drawHouseLvl0(size)
-                .drawNewLine()
                 .drawHouseLvl1(size)
                 .drawNewLine()
                 .drawHouseLvl2(size)
                 .drawNewLine()
                 .drawHouseLvl3(size)
+                .drawNewLine()
+                .drawHouseLvl4(size)
                 .drawNewLine();
     }
 }
