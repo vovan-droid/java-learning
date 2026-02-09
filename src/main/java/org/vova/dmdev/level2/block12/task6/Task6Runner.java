@@ -17,7 +17,7 @@ public class Task6Runner {
         LocalDateTime localDateTime1 = localDate.atStartOfDay();
 
         Duration duration = Duration.between(localDateTime1, localDateTime);
-        System.out.println(duration);
+        System.out.println(duration.getSeconds());
 
 
     }
