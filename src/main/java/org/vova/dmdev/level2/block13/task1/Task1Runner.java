@@ -1,7 +1,6 @@
 package org.vova.dmdev.level2.block13.task1;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class Task1Runner {

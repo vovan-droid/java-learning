@@ -1,8 +1,6 @@
 package org.vova.dmdev.level2.block13.task1;
 
-import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Random;
 
 public class ProducerThread implements Runnable {
 
