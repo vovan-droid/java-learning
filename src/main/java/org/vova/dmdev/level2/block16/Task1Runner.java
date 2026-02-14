@@ -1,6 +1,8 @@
 package org.vova.dmdev.level2.block16;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.Collectors;
@@ -27,17 +29,27 @@ public class Task1Runner {
         String fieldValues = Arrays.stream(declaredFields)
                 .filter(field -> field.isAnnotationPresent(Column.class))
                 .sorted(Comparator.comparing(Field::getName))
-                .peek(field -> field.setAccessible(true))
-                .map(field -> {
+                .map(field -> getMethodName(car, field))
+                .map(method -> {
                     try {
-                        return String.valueOf(field.get(car));
+                        return method.invoke(car);
                     } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                        return "";
+                        throw new RuntimeException(e);
+                    } catch (InvocationTargetException e) {
+                        throw new RuntimeException(e);
                     }
                 })
                 .map(value -> "'" + value + "'")
                 .collect(Collectors.joining(", "));
         return String.format(template, annotation.schema(), annotation.name(), fieldNames, fieldValues);
+    }
+
+    private static Method getMethodName(Car car, Field field) {
+        String name = field.getName();
+        try {
+            return car.getClass().getMethod("get" + name.substring(0, 1).toUpperCase() + name.substring(1));
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
